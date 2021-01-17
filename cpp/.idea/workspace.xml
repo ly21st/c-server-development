@@ -2,31 +2,39 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="cp" targetName="trap" />
-      <config projectName="cp" targetName="mul_port_client_epoll" />
-      <config projectName="cp" targetName="async_http" />
-      <config projectName="cp" targetName="reactor" />
-      <config projectName="cp" targetName="longestCommonPrefix" />
-      <config projectName="cp" targetName="merge" />
-      <config projectName="cp" targetName="twoSum" />
-      <config projectName="cp" targetName="MyCircularDeque" />
-      <config projectName="cp" targetName="sync_http" />
       <config projectName="cp" targetName="gridIllumination2" />
-      <config projectName="cp" targetName="cfg" />
       <config projectName="cp" targetName="isPalindrome" />
+      <config projectName="cp" targetName="mul_port_client_epoll" />
+      <config projectName="cp" targetName="twoSum" />
+      <config projectName="cp" targetName="longestCommonPrefix" />
+      <config projectName="cp" targetName="sync_http" />
       <config projectName="cp" targetName="gridIllumination" />
+      <config projectName="cp" targetName="reactor" />
+      <config projectName="cp" targetName="cfg" />
+      <config projectName="cp" targetName="async_http" />
+      <config projectName="cp" targetName="trap" />
+      <config projectName="cp" targetName="merge" />
+      <config projectName="cp" targetName="MyCircularDeque" />
     </generated>
   </component>
-  <component name="CMakeSettings" AUTO_RELOAD="true">
+  <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65c40f1c-de2a-42eb-a477-9c1e91fe9212" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myproj/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myproj/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../myproj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myproj/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap1_1/kmp.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap1_1/kmp.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap2_4/async_http.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap2_4/sync_http.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap5_3/client.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap5_3/mul_port_client_epoll.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap5_3/reactor.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap5_3/service.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap5_3/学习笔记.md" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,10 +63,10 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="F:/clion_workspace/my_proj" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -140,6 +148,7 @@
     </configuration>
     <list>
       <item itemvalue="CMake Application.MyCircularDeque" />
+      <item itemvalue="CMake Application.reactor" />
       <item itemvalue="CMake Application.async_http" />
       <item itemvalue="CMake Application.cfg" />
       <item itemvalue="CMake Application.gridIllumination" />
@@ -148,7 +157,6 @@
       <item itemvalue="CMake Application.longestCommonPrefix" />
       <item itemvalue="CMake Application.merge" />
       <item itemvalue="CMake Application.mul_port_client_epoll" />
-      <item itemvalue="CMake Application.reactor" />
       <item itemvalue="CMake Application.sync_http" />
       <item itemvalue="CMake Application.trap" />
       <item itemvalue="CMake Application.twoSum" />
@@ -192,6 +200,7 @@
       <workItem from="1595661964591" duration="16000" />
       <workItem from="1596465391770" duration="671000" />
       <workItem from="1610812062873" duration="235000" />
+      <workItem from="1610875521131" duration="4581000" />
     </task>
     <servers />
   </component>
