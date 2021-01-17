@@ -1,0 +1,29 @@
+COMPILER	= gcc
+LINKER		= ld
+#CMPFLAG 	= -c -g -Wall -D_LINUX_  -D_DEBUG_  -D_UNIX95_  -fPIC   -std=c99 -Wl -pthread  -I.  -I/root/ly/lua_program/lua_include
+CMPFLAG 	= -c -g -Wall -D_LINUX_  -D_DEBUG_  -D_UNIX95_  -fPIC -fPIC -pthread -std=c99 -I.  -I/root/ly/lua_program/lua_include
+LNKFLAG 	= -shared -pic -E -Bsymbolic -Bdynamic 
+#SYTMLIB 	= -lc -lm -ldl -lpthread 
+SYTMLIB 	= -lc -lm -ldl -lpthread  -Bdynamic
+PLIBDIR		= -L./ -L$(HOME)/lib -L/usr/lib64
+
+END = /usr/lib/libc.a
+
+#all:example example2 example3
+all: liblproc.so
+
+
+.c.o:
+	$(COMPILER) $(CMPFLAG) $<
+	    
+    
+#libarray.so:example1.o
+#	rm -f $@
+#	$(LINKER) $(LNKFLAG) $(SYTMLIB) $(PLIBDIR) -llua -o$@ $? /usr/lib64/libc.so
+#	rm -f $?
+
+
+liblproc.so:example.o
+	rm -f $@
+	$(COMPILER) -shared $(SYTMLIB) $(PLIBDIR) -llua -o$@ $? 
+	rm -f $?

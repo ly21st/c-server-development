@@ -1,0 +1,52 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++",
+                "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32",
+                "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward",
+                "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include",
+                "E:/Program Files/LLVM/include",
+                "E:/Program Files/LLVM/x86_64-w64-mingw32/include",
+                "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed",
+                "E:/Program Files/LLVM/x86_64-w64-mingw32/include/*",
+                "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/**",
+                "E:/liyuan-github/my-algorithm/cpp/lua_program/lua-5.4.0/src"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "browse": {
+                "path": [
+                    "E:/Program Files/LLVM/x86_64-w64-mingw32/include",
+                    "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include",
+                    "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed",
+                    "E:/Program Files/LLVM/include/*",
+                    "${workspaceRoot}",
+                    "${workspaceFolder}/**",
+                    "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++",
+                    "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32",
+                    "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward",
+                    "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include",
+                    "E:/Program Files/LLVM/include",
+                    "E:/Program Files/LLVM/x86_64-w64-mingw32/include",
+                    "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed",
+                    "E:/Program Files/LLVM/x86_64-w64-mingw32/include/*",
+                    "E:/Program Files/LLVM/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/**",
+                    "E:/liyuan-github/my-algorithm/cpp/lua_program/lua-5.4.0/src"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "compilerPath": "E:\\Program Files\\LLVM\\bin\\gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

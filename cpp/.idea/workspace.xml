@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="cp" targetName="trap" />
+      <config projectName="cp" targetName="mul_port_client_epoll" />
+      <config projectName="cp" targetName="async_http" />
+      <config projectName="cp" targetName="reactor" />
+      <config projectName="cp" targetName="longestCommonPrefix" />
+      <config projectName="cp" targetName="merge" />
+      <config projectName="cp" targetName="twoSum" />
+      <config projectName="cp" targetName="MyCircularDeque" />
+      <config projectName="cp" targetName="sync_http" />
+      <config projectName="cp" targetName="gridIllumination2" />
+      <config projectName="cp" targetName="cfg" />
+      <config projectName="cp" targetName="isPalindrome" />
+      <config projectName="cp" targetName="gridIllumination" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="65c40f1c-de2a-42eb-a477-9c1e91fe9212" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myproj/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myproj/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myproj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myproj/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectId" id="1a57eU2me32mpblpKxckxRjHy4O" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="F:/clion_workspace/my_proj" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="CMake Application.MyCircularDeque">
+    <configuration name="MyCircularDeque" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="MyCircularDeque" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="MyCircularDeque">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="async_http" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="async_http" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="async_http">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="cfg" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="cfg" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="cfg">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gridIllumination" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="gridIllumination" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="gridIllumination">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gridIllumination2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="gridIllumination2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="gridIllumination2">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="isPalindrome" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="isPalindrome" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="isPalindrome">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="longestCommonPrefix" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="longestCommonPrefix" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="longestCommonPrefix">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="merge" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="merge" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="merge">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mul_port_client_epoll" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="mul_port_client_epoll" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="mul_port_client_epoll">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="reactor" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="reactor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="reactor">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="sync_http" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="sync_http" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="sync_http">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="trap" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="trap" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="trap">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="twoSum" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cp" TARGET_NAME="twoSum" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cp" RUN_TARGET_NAME="twoSum">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.MyCircularDeque" />
+      <item itemvalue="CMake Application.async_http" />
+      <item itemvalue="CMake Application.cfg" />
+      <item itemvalue="CMake Application.gridIllumination" />
+      <item itemvalue="CMake Application.gridIllumination2" />
+      <item itemvalue="CMake Application.isPalindrome" />
+      <item itemvalue="CMake Application.longestCommonPrefix" />
+      <item itemvalue="CMake Application.merge" />
+      <item itemvalue="CMake Application.mul_port_client_epoll" />
+      <item itemvalue="CMake Application.reactor" />
+      <item itemvalue="CMake Application.sync_http" />
+      <item itemvalue="CMake Application.trap" />
+      <item itemvalue="CMake Application.twoSum" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65c40f1c-de2a-42eb-a477-9c1e91fe9212" name="Default Changelist" comment="" />
+      <created>1585466261007</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585466261007</updated>
+      <workItem from="1585466264447" duration="88000" />
+      <workItem from="1585466365895" duration="184000" />
+      <workItem from="1585466560172" duration="11714000" />
+      <workItem from="1585537030980" duration="6807000" />
+      <workItem from="1585616162392" duration="3006000" />
+      <workItem from="1585712671795" duration="9213000" />
+      <workItem from="1585791033947" duration="24229000" />
+      <workItem from="1585874472186" duration="10864000" />
+      <workItem from="1586013698533" duration="27000" />
+      <workItem from="1586095398404" duration="954000" />
+      <workItem from="1586096539689" duration="1174000" />
+      <workItem from="1586098608645" duration="1576000" />
+      <workItem from="1586101755629" duration="59000" />
+      <workItem from="1586102344516" duration="182000" />
+      <workItem from="1586103066646" duration="143000" />
+      <workItem from="1586103247644" duration="6000" />
+      <workItem from="1586152766754" duration="271000" />
+      <workItem from="1586361141206" duration="727000" />
+      <workItem from="1586601505855" duration="85000" />
+      <workItem from="1586601612427" duration="28000" />
+      <workItem from="1586784298922" duration="2248000" />
+      <workItem from="1593433813590" duration="4611000" />
+      <workItem from="1593479414956" duration="4073000" />
+      <workItem from="1593497348033" duration="11786000" />
+      <workItem from="1593523779235" duration="4245000" />
+      <workItem from="1595661964591" duration="16000" />
+      <workItem from="1596465391770" duration="671000" />
+      <workItem from="1610812062873" duration="235000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom" timestamp="1586096353725">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586096353725" />
+    <state width="1877" height="287" key="GridCell.Tab.0.center" timestamp="1586096353725">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="287" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586096353725" />
+    <state width="1877" height="287" key="GridCell.Tab.0.left" timestamp="1586096353725">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="287" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586096353725" />
+    <state width="1877" height="287" key="GridCell.Tab.0.right" timestamp="1586096353725">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="287" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586096353725" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1586095708119">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586095708119" />
+    <state x="645" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586096623746">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="645" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586096623746" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/trap.cpp</url>
+          <line>52</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/twoSum.cpp</url>
+          <line>90</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/isPalindrome.cpp</url>
+          <line>181</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="node1.next" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>((jj-j)/(ii-i))==1</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(jj-j)/(ii-i)==1</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(ii-i)</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(jj-j)</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>jj == j</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ii == i</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(ii == i || jj == j || (jj-j)/(ii-i)==1 || (jj-j)/(ii-i)==-1)</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+</project>

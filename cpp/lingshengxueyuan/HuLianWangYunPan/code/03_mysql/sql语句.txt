@@ -1,0 +1,26 @@
+-- 创建一个名称为lingsheng的数据库。
+create database lingsheng;
+
+-- 删除数据库lingsheng
+-- drop database lingsheng;
+
+-- 使用数据库 lingsheng
+use lingsheng;
+
+-- 创建表
+create table book (
+	id int primary key auto_increment, 
+	title varchar(255), 
+	author varchar(255),
+	price DECIMAL(8,2), 
+	date varchar(32)
+);
+
+-- 删除book 表
+-- drop table book;
+
+-- 插入数据
+insert into book (title,author,price,date) values('C++ Primer Plus(第6版)', 'Stephen Prata', 95.00, '2012/07/01');
+insert into book (title,author,price,date) values('深入理解Nginx：模块开发与架构解析（第2版）', '陶辉', 68.80, '2016/02/01');
+insert into book (title,author,price,date) values('Linux内核设计与实现(原书第3版)', '拉芙(RobertLove)', 47.90, '2011/06/01');
+

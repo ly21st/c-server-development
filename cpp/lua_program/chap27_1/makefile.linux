@@ -1,0 +1,24 @@
+COMPILER	= gcc
+LINKER		= ld
+CMPFLAG 	= -c -g -Wall -D_LINUX_  -D_DEBUG_  -D_UNIX95_  -fPIC -pthread  -I.  -I/root/ly/lua_program/lua_include
+LNKFLAG 	= -shared -pic -E -Bsymbolic -Bdynamic
+#SYTMLIB 	= -lc -lm -ldl -lpthread 
+SYTMLIB 	= -lm -Wl,-E -ldl
+PLIBDIR		= -L$(HOME)/lib
+
+END = /usr/lib/libc.a
+
+all:example
+
+
+.c.o:
+	$(COMPILER) $(CMPFLAG) $<
+	
+example:example.o liblua.a
+	rm -f $@
+	$(COMPILER) $(SYTMLIB) $(PLIBDIR) -o$@ $? liblua.a 
+	rm -f $?	
+	
+    
+# gcc -I/root/ly/lua_program/lua_include -std=gnu99 -o example  example.c  liblua.a -lm -Wl,-E -ldl
+    
