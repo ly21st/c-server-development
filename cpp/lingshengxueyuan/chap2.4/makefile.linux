@@ -1,0 +1,43 @@
+COMPILER	= gcc
+COMPILER_C++	= g++ -g
+LINKER		= ld
+
+SMART_PTR_INC = $(HOME)/apue_ly/boost/smart_pointer
+BIND_FUNCTION= $(HOME)/apue_ly/boost/bind_function
+CRT_INC=$(HOME)/apue_ly/crt
+
+CMPFLAG 	= -c -g -fPIC -pthread  -D_UNIX95_ -DVersion64 -DLinux -I.  -I$(CRT_INC) -I /usr/local/include
+DLLLNKFLG 	= -shared -pic -E -Bsymbolic -Bdynamic
+EXELNKFLG   = 
+SYTMLIB 	= -lc -lm -ldl -lpthread   -Bdynamic -lfcgi 
+#SYTMLIB 	= -lc -lm -ldl -lpthread   -Bdynamic -levent  
+#SYTMLIB 	= -lc -lm -ldl -lpthread     -lz -lrt
+PLIBDIR		= -L$(HOME)/lib -L./ 
+
+
+all: excute  
+excute:sync_http async_http
+
+.c.o:
+	$(COMPILER) $(CMPFLAG) $<
+    
+	
+.cpp.o:
+	$(COMPILER_C++) $(CMPFLAG) $<
+    
+        
+clear:
+	rm -rf *.o
+
+
+sync_http:sync_http.o
+	rm -f $@
+	$(COMPILER) $(SYTMLIB) $(PLIBDIR)  -o$@ $?
+	rm -f $?
+
+async_http:async_http.o
+	rm -f $@
+	$(COMPILER) $(SYTMLIB) $(PLIBDIR)  -o$@ $?
+	rm -f $?
+
+# gcc -I/usr/include/fastdfs -I /usr/include/fastcommon/ -o fdfs_upload_file  fdfs_upload_file.c -lfdfsclient -lfastcommon    
