@@ -1,0 +1,3 @@
+（1）redis-test.c 上课测试代码
+（2）redis-protocol.c redis协议的测试，特别要声明的是在处理命令的返回值，重点是处理正确的返回情况，除去正常情况则其他返回情况都可以认为是异常
+（3）更全的redis编程操作参考gitlab: http://gitlab.0voice.com/liaoqingfu/redis_client
