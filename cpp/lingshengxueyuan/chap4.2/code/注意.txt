@@ -1,0 +1,8 @@
+代码都是在ubuntu16.04 下编译的。
+
+1. 如果gcc版本过低。需要将 
+for (int i=0;i<size;i++)
+改为
+int i=0;
+for (;i<size;i++)
+2. 如果系统版本过低（比如Ubuntu14.04），jsoncpp请使用源码安装。

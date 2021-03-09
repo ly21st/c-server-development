@@ -1,0 +1,3 @@
+gcc cJSON.c cjson_test.c -o cjson_test -lm
+gcc cJSON.c comment_test.c -o comment_test -lm
+g++ reflector.cpp -o reflector -std=c++11
