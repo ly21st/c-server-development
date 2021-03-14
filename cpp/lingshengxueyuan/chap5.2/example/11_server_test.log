@@ -1,0 +1,228 @@
+[DEBUG 20-06-24 06:53:10] [11_client.cpp:28]
+This is a really long message.
+Just testing it out
+What do you think?
+
+[DEBUG 20-06-24 06:53:10] [11_client.cpp:30]
+This is a bool: 1
+
+[INFO  20-06-24 06:53:10] [11_client.cpp:31]
+This is a char: x
+
+[INFO  20-06-24 06:53:10] [11_client.cpp:32]
+This is a short: -100
+
+[INFO  20-06-24 06:53:10] [11_client.cpp:34]
+This is a unsigned short: 100
+
+[INFO  20-06-24 06:53:10] [11_client.cpp:36]
+This is a int: 1000
+
+[INFO  20-06-24 06:53:10] [11_client.cpp:37]
+This is a unsigned int: 1000
+
+[INFO  20-06-24 06:53:10] [11_client.cpp:38]
+This is a long(hex): 5f5e100
+
+[INFO  20-06-24 06:53:10] [11_client.cpp:39]
+This is a unsigned long: 100000000
+
+[WARN  20-06-24 06:53:10] [11_client.cpp:40]
+This is a float: 1.2345
+
+[ERROR 20-06-24 06:53:10] [11_client.cpp:44]
+This is a double: 1.2345234234
+
+[FATAL 20-06-24 06:53:10] [11_client.cpp:48]
+This is a long double: 123452342342.342
+
+[DEBUG 20-06-24 06:53:19] [11_client.cpp:28]
+This is a really long message.
+Just testing it out
+What do you think?
+
+[DEBUG 20-06-24 06:53:19] [11_client.cpp:30]
+This is a bool: 1
+
+[INFO  20-06-24 06:53:19] [11_client.cpp:31]
+This is a char: x
+
+[INFO  20-06-24 06:53:19] [11_client.cpp:32]
+This is a short: -100
+
+[INFO  20-06-24 06:53:19] [11_client.cpp:34]
+This is a unsigned short: 100
+
+[INFO  20-06-24 06:53:19] [11_client.cpp:36]
+This is a int: 1000
+
+[INFO  20-06-24 06:53:19] [11_client.cpp:37]
+This is a unsigned int: 1000
+
+[INFO  20-06-24 06:53:19] [11_client.cpp:38]
+This is a long(hex): 5f5e100
+
+[INFO  20-06-24 06:53:19] [11_client.cpp:39]
+This is a unsigned long: 100000000
+
+[WARN  20-06-24 06:53:19] [11_client.cpp:40]
+This is a float: 1.2345
+
+[ERROR 20-06-24 06:53:19] [11_client.cpp:44]
+This is a double: 1.2345234234
+
+[FATAL 20-06-24 06:53:19] [11_client.cpp:48]
+This is a long double: 123452342342.342
+
+[DEBUG 20-06-24 06:53:35] [11_client.cpp:28]
+This is a really long message.
+Just testing it out
+What do you think?
+
+[DEBUG 20-06-24 06:53:35] [11_client.cpp:30]
+This is a bool: 1
+
+[INFO  20-06-24 06:53:35] [11_client.cpp:31]
+This is a char: x
+
+[INFO  20-06-24 06:53:35] [11_client.cpp:32]
+This is a short: -100
+
+[INFO  20-06-24 06:53:35] [11_client.cpp:34]
+This is a unsigned short: 100
+
+[INFO  20-06-24 06:53:35] [11_client.cpp:36]
+This is a int: 1000
+
+[INFO  20-06-24 06:53:35] [11_client.cpp:37]
+This is a unsigned int: 1000
+
+[INFO  20-06-24 06:53:35] [11_client.cpp:38]
+This is a long(hex): 5f5e100
+
+[INFO  20-06-24 06:53:35] [11_client.cpp:39]
+This is a unsigned long: 100000000
+
+[WARN  20-06-24 06:53:35] [11_client.cpp:40]
+This is a float: 1.2345
+
+[ERROR 20-06-24 06:53:35] [11_client.cpp:44]
+This is a double: 1.2345234234
+
+[FATAL 20-06-24 06:53:35] [11_client.cpp:48]
+This is a long double: 123452342342.342
+
+[DEBUG 20-06-24 07:05:44] [11_client.cpp:28]
+This is a really long message.
+Just testing it out
+What do you think?
+
+[DEBUG 20-06-24 07:05:44] [11_client.cpp:30]
+This is a bool: 1
+
+[INFO  20-06-24 07:05:44] [11_client.cpp:31]
+This is a char: x
+
+[INFO  20-06-24 07:05:44] [11_client.cpp:32]
+This is a short: -100
+
+[INFO  20-06-24 07:05:44] [11_client.cpp:34]
+This is a unsigned short: 100
+
+[INFO  20-06-24 07:05:44] [11_client.cpp:36]
+This is a int: 1000
+
+[INFO  20-06-24 07:05:44] [11_client.cpp:37]
+This is a unsigned int: 1000
+
+[INFO  20-06-24 07:05:44] [11_client.cpp:38]
+This is a long(hex): 5f5e100
+
+[INFO  20-06-24 07:05:44] [11_client.cpp:39]
+This is a unsigned long: 100000000
+
+[WARN  20-06-24 07:05:44] [11_client.cpp:40]
+This is a float: 1.2345
+
+[ERROR 20-06-24 07:05:44] [11_client.cpp:44]
+This is a double: 1.2345234234
+
+[FATAL 20-06-24 07:05:44] [11_client.cpp:48]
+This is a long double: 123452342342.342
+
+[DEBUG 20-06-24 07:06:39] [11_client.cpp:28]
+This is a really long message.
+Just testing it out
+What do you think?
+
+[DEBUG 20-06-24 07:06:39] [11_client.cpp:30]
+This is a bool: 1
+
+[INFO  20-06-24 07:06:39] [11_client.cpp:31]
+This is a char: x
+
+[INFO  20-06-24 07:06:39] [11_client.cpp:32]
+This is a short: -100
+
+[INFO  20-06-24 07:06:39] [11_client.cpp:34]
+This is a unsigned short: 100
+
+[INFO  20-06-24 07:06:39] [11_client.cpp:36]
+This is a int: 1000
+
+[INFO  20-06-24 07:06:39] [11_client.cpp:37]
+This is a unsigned int: 1000
+
+[INFO  20-06-24 07:06:39] [11_client.cpp:38]
+This is a long(hex): 5f5e100
+
+[INFO  20-06-24 07:06:39] [11_client.cpp:39]
+This is a unsigned long: 100000000
+
+[WARN  20-06-24 07:06:39] [11_client.cpp:40]
+This is a float: 1.2345
+
+[ERROR 20-06-24 07:06:39] [11_client.cpp:44]
+This is a double: 1.2345234234
+
+[FATAL 20-06-24 07:06:39] [11_client.cpp:48]
+This is a long double: 123452342342.342
+
+[DEBUG 20-06-24 07:06:51] [11_client.cpp:28]
+This is a really long message.
+Just testing it out
+What do you think?
+
+[DEBUG 20-06-24 07:06:51] [11_client.cpp:30]
+This is a bool: 1
+
+[INFO  20-06-24 07:06:51] [11_client.cpp:31]
+This is a char: x
+
+[INFO  20-06-24 07:06:51] [11_client.cpp:32]
+This is a short: -100
+
+[INFO  20-06-24 07:06:51] [11_client.cpp:34]
+This is a unsigned short: 100
+
+[INFO  20-06-24 07:06:51] [11_client.cpp:36]
+This is a int: 1000
+
+[INFO  20-06-24 07:06:51] [11_client.cpp:37]
+This is a unsigned int: 1000
+
+[INFO  20-06-24 07:06:51] [11_client.cpp:38]
+This is a long(hex): 5f5e100
+
+[INFO  20-06-24 07:06:51] [11_client.cpp:39]
+This is a unsigned long: 100000000
+
+[WARN  20-06-24 07:06:51] [11_client.cpp:40]
+This is a float: 1.2345
+
+[ERROR 20-06-24 07:06:51] [11_client.cpp:44]
+This is a double: 1.2345234234
+
+[FATAL 20-06-24 07:06:51] [11_client.cpp:48]
+This is a long double: 123452342342.342
+

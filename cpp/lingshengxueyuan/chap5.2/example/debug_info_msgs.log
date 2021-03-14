@@ -1,0 +1,4 @@
+191 [140348220966720] DEBUG log <> - This is a DEBUG message
+193 [140348220966720] INFO log <> - This is a INFO message
+197 [140348220966720] INFO log <> - visible
+197 [140348220966720] INFO log <> - invisible

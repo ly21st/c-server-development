@@ -1,0 +1,9 @@
+140 [140206647473984] WARN root <> - Testing....
+153 [140206647473984] WARN test.log_3 <> - printMsgs()
+159 [140206647473984] ERROR test.log_3 <> - printMsgs()
+1163 [140206647473984] WARN test.log_3 <> - printMsgs()
+1169 [140206647473984] ERROR test.log_3 <> - printMsgs()
+2172 [140206647473984] WARN test.log_3 <> - printMsgs()
+2176 [140206647473984] ERROR test.log_3 <> - printMsgs()
+3181 [140206647473984] WARN test.log_3 <> - printMsgs()
+3183 [140206647473984] ERROR test.log_3 <> - printMsgs()

@@ -1,0 +1,11 @@
+186 [140348220966720] WARN root <> - Testing....
+190 [140348220966720] TRACE log <> - ENTER: ::printDebug()
+191 [140348220966720] DEBUG log <> - This is a DEBUG message
+193 [140348220966720] INFO log <> - This is a INFO message
+194 [140348220966720] WARN log <> - This is a WARN message
+196 [140348220966720] ERROR log <> - This is a ERROR message
+196 [140348220966720] FATAL log <> - This is a FATAL message
+197 [140348220966720] INFO log <> - visible
+197 [140348220966720] INFO log <> - invisible
+198 [140348220966720] TRACE log <> - EXIT:  ::printDebug()
+199 [140348220966720] WARN root <> - Testing std::function<> filter....
