@@ -1,0 +1,1 @@
+gcc -o huibian_test -g huibian_test.c -lpthread
