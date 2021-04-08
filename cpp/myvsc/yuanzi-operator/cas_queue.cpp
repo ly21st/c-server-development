@@ -8,7 +8,8 @@
 #include <memory>
 
 #define MAX_THREAD_NUM 1
-#define FOR_LOOP_COUNT 10000000
+// #define FOR_LOOP_COUNT 10000000
+#define FOR_LOOP_COUNT 1000000
 static int counter = 0;
 static pthread_spinlock_t spinlock;
 static std::mutex s_mutex;
@@ -146,6 +147,9 @@ public:
 
 void *mutex_thread_push(void *argv)
 {
+    pthread_t tid = pthread_self();
+    printf("push thread:%p enter\n", tid);
+
     for (int i = 0; i < FOR_LOOP_COUNT; i++)
     {
         s_mutex.lock();
@@ -153,16 +157,22 @@ void *mutex_thread_push(void *argv)
         s_list.push_back(i);
         s_mutex.unlock();
     }
+
+    printf("push thread:%p exit\n", tid);
     return NULL;
 }
 
 void *mutex_thread_pop(void *argv)
 {
+    pthread_t tid = pthread_self();
+    printf("pop thread:%p enter\n", tid);
+
     while (true)
     {
         int value = 0;
         s_mutex.lock();
-        if (s_list.size() > 0)
+        // if (s_list.size() > 0)
+        if (!s_list.empty())
         {
             value = s_list.front();
             s_list.pop_front();
@@ -175,6 +185,8 @@ void *mutex_thread_pop(void *argv)
             break;
         }
     }
+
+    printf("push thread:%p exit\n", tid);
     printf("%s exit\n", __FUNCTION__);
     return NULL;
 }
@@ -182,17 +194,25 @@ void *mutex_thread_pop(void *argv)
 static Queue<int> s_queue;
 void *queue_free_thread_push(void *argv)
 {
+    pthread_t tid = pthread_self();
+    printf("push thread:%p enter\n", tid);
+
     for (int i = 0; i < FOR_LOOP_COUNT; i++)
     {
         s_queue.push2(i);
         lxx_atomic_add(&s_count_push, 1);
         // printf("s_count_push:%d\n",s_count_push);
     }
+
+    printf("push thread:%p exit\n", tid);
     return NULL;
 }
 
 void *queue_free_thread_pop(void *argv)
 {
+    pthread_t tid = pthread_self();
+    printf("pop thread:%p enter\n", tid);
+
     // for (int i = 0; i < FOR_LOOP_COUNT*5; i++)
     int last_value = 0;
     static int s_pid_count = 0;
@@ -222,6 +242,8 @@ void *queue_free_thread_pop(void *argv)
             break;
         }
     }
+
+    printf("push thread:%p exit\n", tid);
     printf("%s exit\n", __FUNCTION__);
     return NULL;
 }
@@ -238,6 +260,7 @@ int test_queue(thread_func_t func_push, thread_func_t func_pop, char **argv)
             printf("create thread failed\n");
         }
     }
+    printf("\n-----------------after create push threads--------------------\n");
     pthread_t tid_pop[MAX_THREAD_NUM] = {0};
     for (int i = 0; i < MAX_THREAD_NUM; i++)
     {
@@ -248,14 +271,20 @@ int test_queue(thread_func_t func_push, thread_func_t func_pop, char **argv)
         }
     }
 
+    printf("\n-----------------after create pop threads--------------------\n");
+
     for (int i = 0; i < MAX_THREAD_NUM; i++)
     {
         pthread_join(tid_push[i], NULL);
     }
+
+    printf("\n-----------------after join push threads--------------------\n");
     for (int i = 0; i < MAX_THREAD_NUM; i++)
     {
         pthread_join(tid_pop[i], NULL);
     }
+
+    printf("\n-----------------after join pop threads--------------------\n");
     clock_t end = clock();
     printf("spend clock : %ld, push:%d, pop:%d\n", (end - start) / CLOCKS_PER_SEC,
            s_count_push, s_count_pop);
@@ -267,7 +296,7 @@ int main(int argc, char **argv)
 {
     printf("THREAD_NUM:%d\n\n", MAX_THREAD_NUM);
 
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 1; i++)
     {
         s_count_push = 0;
         s_count_pop = 0;
