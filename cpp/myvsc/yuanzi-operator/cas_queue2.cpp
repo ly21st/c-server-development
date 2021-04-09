@@ -9,10 +9,11 @@
 
 #define MAX_THREAD_NUM 1
 // #define FOR_LOOP_COUNT 10000000
-#define FOR_LOOP_COUNT 10000000
+#define FOR_LOOP_COUNT 1000000
 static int counter = 0;
 static pthread_spinlock_t spinlock;
-static std::mutex s_mutex;
+//static std::mutex s_mutex;
+static pthread_mutex_t s_mutex = PTHREAD_MUTEX_INITIALIZER;
 static int s_count_push = 0;
 static int s_count_pop = 0;
 
@@ -152,11 +153,12 @@ void *mutex_thread_push(void *argv)
 
     for (int i = 0; i < FOR_LOOP_COUNT; i++)
     {
-        s_mutex.lock();
+        // s_mutex.lock();
+        pthread_mutex_lock(&s_mutex);
         s_count_push++;
         s_list.push_back(i);
-        //  printf("tid:%p, i=%d\n", tid, i);
-        s_mutex.unlock();
+        // s_mutex.unlock();
+        pthread_mutex_unlock(&s_mutex);
     }
 
     printf("push thread:%p exit\n", tid);
@@ -171,17 +173,17 @@ void *mutex_thread_pop(void *argv)
     while (true)
     {
         int value = 0;
-        s_mutex.lock();
-        // size_t size = s_list.size();
-        // printf("tid:%p, size=%zu\n", tid, size);
-        // if (size > 0)
-        if (!s_list.empty())
+        // s_mutex.lock();
+        pthread_mutex_lock(&s_mutex);
+        if (s_list.size() > 0)
+        // if (!s_list.empty())
         {
             value = s_list.front();
             s_list.pop_front();
             s_count_pop++;
         }
-        s_mutex.unlock();
+        // s_mutex.unlock();
+        pthread_mutex_unlock(&s_mutex);
         if (s_count_pop >= FOR_LOOP_COUNT * MAX_THREAD_NUM)
         {
             printf("%s dequeue:%d\n", __FUNCTION__, value);

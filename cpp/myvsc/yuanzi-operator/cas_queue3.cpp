@@ -143,7 +143,14 @@ public:
             _head = tmp;
         }
     }
+
+    bool empty() {
+        return _tail == _head;
+    }
 };
+
+
+static Queue<int> mutex_s_queue;
 
 void *mutex_thread_push(void *argv)
 {
@@ -154,7 +161,7 @@ void *mutex_thread_push(void *argv)
     {
         s_mutex.lock();
         s_count_push++;
-        s_list.push_back(i);
+        mutex_s_queue.push(i);
         //  printf("tid:%p, i=%d\n", tid, i);
         s_mutex.unlock();
     }
@@ -172,13 +179,11 @@ void *mutex_thread_pop(void *argv)
     {
         int value = 0;
         s_mutex.lock();
-        // size_t size = s_list.size();
-        // printf("tid:%p, size=%zu\n", tid, size);
-        // if (size > 0)
-        if (!s_list.empty())
+
+        if (!mutex_s_queue.empty())
         {
-            value = s_list.front();
-            s_list.pop_front();
+            int e;
+            mutex_s_queue.pop(e);
             s_count_pop++;
         }
         s_mutex.unlock();
