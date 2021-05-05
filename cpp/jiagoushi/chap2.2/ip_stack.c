@@ -71,7 +71,7 @@ struct udppkt {
 	struct udphdr udp; // 8
 
 	unsigned char body[0]; // sizeof(body)=0;
-	
+
 
 };
 
@@ -79,7 +79,7 @@ struct udppkt {
 // sizeof()
 
 // f-stack
-// dpdk + bsd 
+// dpdk + bsd
 
 // netmap , dpdk, raw_socket
 
@@ -92,6 +92,9 @@ int main() {
 	if (nmr == NULL) {
 		return -1;
 	}
+
+	int size = sizeof(struct udppkt);
+	printf("size of udppkt:%d\n", size);
 
 	struct pollfd pfd = {0};
 	pfd.fd = nmr->fd; //
@@ -122,7 +125,7 @@ int main() {
 					udp->body[udp_length-8] = '\0';
 
 					printf("udp --> %s\n", udp->body);
-					
+
 				}
 
 			}

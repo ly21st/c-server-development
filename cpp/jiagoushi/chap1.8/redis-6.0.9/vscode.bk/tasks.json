@@ -1,0 +1,22 @@
+// https://code.visualstudio.com/docs/editor/tasks
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+			"type": "shell",
+            "label": "make redis",
+            "command": "/usr/local/bin/make",
+            "args": [
+            ],
+			"options": {
+				"cwd": "${workspaceFolder}/src"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+            "group": "build"
+        },
+    ]
+}
+
+
