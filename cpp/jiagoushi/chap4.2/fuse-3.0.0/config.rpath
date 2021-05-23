@@ -1,0 +1,1503 @@
+#! /bin/sh
+# Output a system dependent set of variables, describing how to set the
+# run time search path of shared libraries in an executable.
+#
+#   Copyright 1996-2014 Free Software Foundation, Inc.
+#   Taken from GNU libtool, 2001
+#   Originally by Gordon Matzigkeit <gord@gnu.ai.mit.edu>, 1996
+#
+#   This file is free software; the Free Software Foundation gives
+#   unlimited permission to copy and/or distribute it, with or without
+#   modifications, as long as this notice is preserved.
+#
+# The first argument passed to this file is the canonical host specification,
+#    CPU_TYPE-MANUFACTURER-OPERATING_SYSTEM
+# or
+#    CPU_TYPE-MANUFACTURER-KERNEL-OPERATING_SYSTEM
+# The environment variables CC, GCC, LDFLAGS, LD, with_gnu_ld
+# should be set by the caller.
+#
+# The set of defined variables is at the end of this script.
+
+# Known limitations:
+# - On IRIX 6.5 with CC="cc", the run time search patch must not be longer
+#   than 256 bytes, otherwise the compiler driver will dump core. The only
+#   known workaround is to choose shorter directory names for the build
+#   directory and/or the installation directory.
+
+# All known linkers require a '.a' archive for static linking (except MSVC,
+# which needs '.lib').
+libext=a
+shrext=.so
+
+host="$1"
+host_cpu=`echo "$host" | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\1/'`
+host_vendor=`echo "$host" | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\2/'`
+host_os=`echo "$host" | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\3/'`
+
+# Code taken from libtool.m4's _LT_CC_BASENAME.
+
+for cc_temp in $CC""; do
+  case $cc_temp in
+    compile | *[\\/]compile | ccache | *[\\/]ccache ) ;;
+    distcc | *[\\/]distcc | purify | *[\\/]purify ) ;;
+    \-*) ;;
+    *) break;;
+  esac
+done
+cc_basename=`echo "$cc_temp" | sed -e 's%^.*/%%'`
+
+# Code taken from libtool.m4's _LT_COMPILER_PIC.
+
+wl=
+if test "$GCC" = yes; then
+  wl='-Wl,'
+else
+  case "$host_os" in
+    aix*)
+      wl='-Wl,'
+      ;;
+    mingw* | cygwin* | pw32* | os2* | cegcc*)
+      ;;
+    hpux9* | hpux10* | hpux11*)
+      wl='-Wl,'
+      ;;
+    irix5* | irix6* | nonstopux*)
+      wl='-Wl,'
+      ;;
+    linux* | k*bsd*-gnu | kopensolaris*-gnu)
+      case $cc_basename in
+        ecc*)
+          wl='-Wl,'
+          ;;
+        icc* | ifort*)
+          wl='-Wl,'
+          ;;
+        lf95*)
+          wl='-Wl,'
+          ;;
+        nagfor*)
+          wl='-Wl,-Wl,,'
+          ;;
+        pgcc* | pgf77* | pgf90* | pgf95* | pgfortran*)
+          wl='-Wl,'
+          ;;
+        ccc*)
+          wl='-Wl,'
+          ;;
+        xl* | bgxl* | bgf* | mpixl*)
+          wl='-Wl,'
+          ;;
+        como)
+          wl='-lopt='
+          ;;
+        *)
+          case `$CC -V 2>&1 | sed 5q` in
+            *Sun\ F* | *Sun*Fortran*)
+              wl=
+              ;;
+            *Sun\ C*)
+              wl='-Wl,'
+              ;;
+          esac
+          ;;
+      esac
+      ;;
+    newsos6)
+      ;;
+    *nto* | *qnx*)
+      ;;
+    osf3* | osf4* | osf5*)
+      wl='-Wl,'
+      ;;
+    rdos*)
+      ;;
+    solaris*)
+      case $cc_basename in
+        f77* | f90* | f95* | sunf77* | sunf90* | sunf95*)
+          wl='-Qoption ld '
+          ;;
+        *)
+          wl='-Wl,'
+          ;;
+      esac
+      ;;
+    sunos4*)
+      wl='-Qoption ld '
+      ;;
+    sysv4 | sysv4.2uw2* | sysv4.3*)
+      wl='-Wl,'
+      ;;
+    sysv4*MP*)
+      ;;
+    sysv5* | unixware* | sco3.2v5* | sco5v6* | OpenUNIX*)
+      wl='-Wl,'
+      ;;
+    unicos*)
+      wl='-Wl,'
+      ;;
+    uts4*)
+      ;;
+  esac
+fi
+
+# Code taken from libtool.m4's _LT_LINKER_SHLIBS.
+
+hardcode_libdir_flag_spec=
+hardcode_libdir_separator=
+hardcode_direct=no
+hardcode_minus_L=no
+
+case "$host_os" in
+  cygwin* | mingw* | pw32* | cegcc*)
+    # FIXME: the MSVC++ port hasn't been tested in a loooong time
+    # When not using gcc, we currently assume that we are using
+    # Microsoft Visual C++.
+    if test "$GCC" != yes; then
+      with_gnu_ld=no
+    fi
+    ;;
+  interix*)
+    # we just hope/assume this is gcc and not c89 (= MSVC++)
+    with_gnu_ld=yes
+    ;;
+  openbsd*)
+    with_gnu_ld=no
+    ;;
+esac
+
+ld_shlibs=yes
+if test "$with_gnu_ld" = yes; then
+  # Set some defaults for GNU ld with shared library support. These
+  # are reset later if shared libraries are not supported. Putting them
+  # here allows them to be overridden if necessary.
+  # Unlike libtool, we use -rpath here, not --rpath, since the documented
+  # option of GNU ld is called -rpath, not --rpath.
+  hardcode_libdir_flag_spec='${wl}-rpath ${wl}$libdir'
+  case "$host_os" in
+    aix[3-9]*)
+      # On AIX/PPC, the GNU linker is very broken
+      if test "$host_cpu" != ia64; then
+        ld_shlibs=no
+      fi
+      ;;
+    amigaos*)
+      case "$host_cpu" in
+        powerpc)
+          ;;
+        m68k)
+          hardcode_libdir_flag_spec='-L$libdir'
+          hardcode_minus_L=yes
+          ;;
+      esac
+      ;;
+    beos*)
+      if $LD --help 2>&1 | grep ': supported targets:.* elf' > /dev/null; then
+        :
+      else
+        ld_shlibs=no
+      fi
+      ;;
+    cygwin* | mingw* | pw32* | cegcc*)
+      # hardcode_libdir_flag_spec is actually meaningless, as there is
+      # no search path for DLLs.
+      hardcode_libdir_flag_spec='-L$libdir'
+      if $LD --help 2>&1 | grep 'auto-import' > /dev/null; then
+        :
+      else
+        ld_shlibs=no
+      fi
+      ;;
+    haiku*)
+      ;;
+    interix[3-9]*)
+      hardcode_direct=no
+      hardcode_libdir_flag_spec='${wl}-rpath,$libdir'
+      ;;
+    gnu* | linux* | tpf* | k*bsd*-gnu | kopensolaris*-gnu)
+      if $LD --help 2>&1 | grep ': supported targets:.* elf' > /dev/null; then
+        :
+      else
+        ld_shlibs=no
+      fi
+      ;;
+    netbsd*)
+      ;;
+    solaris*)
+      if $LD -v 2>&1 | grep 'BFD 2\.8' > /dev/null; then
+        ld_shlibs=no
+      elif $LD --help 2>&1 | grep ': supported targets:.* elf' > /dev/null; then
+        :
+      else
+        ld_shlibs=no
+      fi
+      ;;
+    sysv5* | sco3.2v5* | sco5v6* | unixware* | OpenUNIX*)
+      case `$LD -v 2>&1` in
+        *\ [01].* | *\ 2.[0-9].* | *\ 2.1[0-5].*)
+          ld_shlibs=no
+          ;;
+        *)
+          if $LD --help 2>&1 | grep ': supported targets:.* elf' > /dev/null; then
+            hardcode_libdir_flag_spec='`test -z "$SCOABSPATH" && echo ${wl}-rpath,$libdir`'
+          else
+            ld_shlibs=no
+          fi
+          ;;
+      esac
+      ;;
+    sunos4*)
+      hardcode_direct=yes
+      ;;
+    *)
+      if $LD --help 2>&1 | grep ': supported targets:.* elf' > /dev/null; then
+        :
+      else
+        ld_shlibs=no
+      fi
+      ;;
+  esac
+  if test "$ld_shlibs" = no; then
+    hardcode_libdir_flag_spec=
+  fi
+else
+  case "$host_os" in
+    aix3*)
+      # Note: this linker hardcodes the directories in LIBPATH if there
+      # are no directories specified by -L.
+      hardcode_minus_L=yes
+      if test "$GCC" = yes; then
+        # Neither direct hardcoding nor static linking is supported with a
+        # broken collect2.
+        hardcode_direct=unsupported
+      fi
+      ;;
+    aix[4-9]*)
+      if test "$host_cpu" = ia64; then
+        # On IA64, the linker does run time linking by default, so we don't
+        # have to do anything special.
+        aix_use_runtimelinking=no
+      else
+        aix_use_runtimelinking=no
+        # Test if we are trying to use run time linking or normal
+        # AIX style linking. If -brtl is somewhere in LDFLAGS, we
+        # need to do runtime linking.
+        case $host_os in aix4.[23]|aix4.[23].*|aix[5-9]*)
+          for ld_flag in $LDFLAGS; do
+            if (test $ld_flag = "-brtl" || test $ld_flag = "-Wl,-brtl"); then
+              aix_use_runtimelinking=yes
+              break
+            fi
+          done
+          ;;
+        esac
+      fi
+      hardcode_direct=yes
+      hardcode_libdir_separator=':'
+      if test "$GCC" = yes; then
+        case $host_os in aix4.[012]|aix4.[012].*)
+          collect2name=`${CC} -print-prog-name=collect2`
+          if test -f "$collect2name" && \
+            strings "$collect2name" | grep resolve_lib_name >/dev/null
+          then
+            # We have reworked collect2
+            :
+          else
+            # We have old collect2
+            hardcode_direct=unsupported
+            hardcode_minus_L=yes
+            hardcode_libdir_flag_spec='-L$libdir'
+            hardcode_libdir_separator=
+          fi
+          ;;
+        esac
+      fi
+      # Begin _LT_AC_SYS_LIBPATH_AIX.
+      echo 'int main () { return 0; }' > conftest.c
+      ${CC} ${LDFLAGS} conftest.c -o conftest
+      aix_libpath=`dump -H conftest 2>/dev/null | sed -n -e '/Import File Strings/,/^$/ { /^0/ { s/^0  *\(.*\)$/\1/; p; }
+}'`
+      if test -z "$aix_libpath"; then
+        aix_libpath=`dump -HX64 conftest 2>/dev/null | sed -n -e '/Import File Strings/,/^$/ { /^0/ { s/^0  *\(.*\)$/\1/; p; }
+}'`
+      fi
+      if test -z "$aix_libpath"; then
+        aix_libpath="/usr/lib:/lib"
+      fi
+      rm -f conftest.c conftest
+      # End _LT_AC_SYS_LIBPATH_AIX.
+      if test "$aix_use_runtimelinking" = yes; then
+        hardcode_libdir_flag_spec='${wl}-blibpath:$libdir:'"$aix_libpath"
+      else
+        if test "$host_cpu" = ia64; then
+          hardcode_libdir_flag_spec='${wl}-R $libdir:/usr/lib:/lib'
+        else
+          hardcode_libdir_flag_spec='${wl}-blibpath:$libdir:'"$aix_libpath"
+        fi
+      fi
+      ;;
+    amigaos*)
+      case "$host_cpu" in
+        powerpc)
+          ;;
+        m68k)
+          hardcode_libdir_flag_spec='-L$libdir'
+          hardcode_minus_L=yes
+          ;;
+      esac
+      ;;
+    bsdi[45]*)
+      ;;
+    cygwin* | mingw* | pw32* | cegcc*)
+      # When not using gcc, we currently assume that we are using
+      # Microsoft Visual C++.
+      # hardcode_libdir_flag_spec is actually meaningless, as there is
+      # no search path for DLLs.
+      hardcode_libdir_flag_spec=' '
+      libext=lib
+      ;;
+    darwin* | rhapsody*)
+      hardcode_direct=no
+      if { case $cc_basename in ifort*) true;; *) test "$GCC" = yes;; esac; }; then
+        :
+      else
+        ld_shlibs=no
+      fi
+      ;;
+    dgux*)
+      hardcode_libdir_flag_spec='-L$libdir'
+      ;;
+    freebsd2.[01]*)
+      hardcode_direct=yes
+      hardcode_minus_L=yes
+      ;;
+    freebsd* | dragonfly*)
+      hardcode_libdir_flag_spec='-R$libdir'
+      hardcode_direct=yes
+      ;;
+    hpux9*)
+      hardcode_libdir_flag_spec='${wl}+b ${wl}$libdir'
+      hardcode_libdir_separator=:
+      hardcode_direct=yes
+      # hardcode_minus_L: Not really in the search PATH,
+      # but as the default location of the library.
+      hardcode_minus_L=yes
+      ;;
+    hpux10*)
+      if test "$with_gnu_ld" = no; then
+        hardcode_libdir_flag_spec='${wl}+b ${wl}$libdir'
+        hardcode_libdir_separator=:
+        hardcode_direct=yes
+        # hardcode_minus_L: Not really in the search PATH,
+        # but as the default location of the library.
+        hardcode_minus_L=yes
+      fi
+      ;;
+    hpux11*)
+      if test "$with_gnu_ld" = no; then
+        hardcode_libdir_flag_spec='${wl}+b ${wl}$libdir'
+        hardcode_libdir_separator=:
+        case $host_cpu in
+          hppa*64*|ia64*)
+            hardcode_direct=no
+            ;;
+          *)
+            hardcode_direct=yes
+            # hardcode_minus_L: Not really in the search PATH,
+            # but as the default location of the library.
+            hardcode_minus_L=yes
+            ;;
+        esac
+      fi
+      ;;
+    irix5* | irix6* | nonstopux*)
+      hardcode_libdir_flag_spec='${wl}-rpath ${wl}$libdir'
+      hardcode_libdir_separator=:
+      ;;
+    netbsd*)
+      hardcode_libdir_flag_spec='-R$libdir'
+      hardcode_direct=yes
+      ;;
+    newsos6)
+      hardcode_direct=yes
+      hardcode_libdir_flag_spec='${wl}-rpath ${wl}$libdir'
+      hardcode_libdir_separator=:
+      ;;
+    *nto* | *qnx*)
+      ;;
+    openbsd*)
+      if test -f /usr/libexec/ld.so; then
+        hardcode_direct=yes
+        if test -z "`echo __ELF__ | $CC -E - | grep __ELF__`" || test "$host_os-$host_cpu" = "openbsd2.8-powerpc"; then
+          hardcode_libdir_flag_spec='${wl}-rpath,$libdir'
+        else
+          case "$host_os" in
+            openbsd[01].* | openbsd2.[0-7] | openbsd2.[0-7].*)
+              hardcode_libdir_flag_spec='-R$libdir'
+              ;;
+            *)
+              hardcode_libdir_flag_spec='${wl}-rpath,$libdir'
+              ;;
+          esac
+        fi
+      else
+        ld_shlibs=no
+      fi
+      ;;
+    os2*)
+      hardcode_libdir_flag_spec='-L$libdir'
+      hardcode_minus_L=yes
+      ;;
+    osf3*)
+      hardcode_libdir_flag_spec='${wl}-rpath ${wl}$libdir'
+      hardcode_libdir_separator=:
+      ;;
+    osf4* | osf5*)
+      if test "$GCC" = yes; then
+        hardcode_libdir_flag_spec='${wl}-rpath ${wl}$libdir'
+      else
+        # Both cc and cxx compiler support -rpath directly
+        hardcode_libdir_flag_spec='-rpath $libdir'
+      fi
+      hardcode_libdir_separator=:
+      ;;
+    solaris*)
+      hardcode_libdir_flag_spec='-R$libdir'
+      ;;
+    sunos4*)
+      hardcode_libdir_flag_spec='-L$libdir'
+      hardcode_direct=yes
+      hardcode_minus_L=yes
+      ;;
+    sysv4)
+      case $host_vendor in
+        sni)
+          hardcode_direct=yes # is this really true???
+          ;;
+        siemens)
+          hardcode_direct=no
+          ;;
+        motorola)
+          hardcode_direct=no #Motorola manual says yes, but my tests say they lie
+          ;;
+      esac
+      ;;
+    sysv4.3*)
+      ;;
+    sysv4*MP*)
+      if test -d /usr/nec; then
+        ld_shlibs=yes
+      fi
+      ;;
+    sysv4*uw2* | sysv5OpenUNIX* | sysv5UnixWare7.[01].[10]* | unixware7* | sco3.2v5.0.[024]*)
+      ;;
+    sysv5* | sco3.2v5* | sco5v6*)
+      hardcode_libdir_flag_spec='`test -z "$SCOABSPATH" && echo ${wl}-R,$libdir`'
+      hardcode_libdir_separator=':'
+      ;;
+    uts4*)
+      hardcode_libdir_flag_spec='-L$libdir'
+      ;;
+    *)
+      ld_shlibs=no
+      ;;
+  esac
+fi
+
+# Check dynamic linker characteristics
+# Code taken from libtool.m4's _LT_SYS_DYNAMIC_LINKER.
+# Unlike libtool.m4, here we don't care about _all_ names of the library, but
+# only about the one the linker finds when passed -lNAME. This is the last
+# element of library_names_spec in libtool.m4, or possibly two of them if the
+# linker has special search rules.
+library_names_spec=      # the last element of library_names_spec in libtool.m4
+libname_spec='lib$name'
+case "$host_os" in
+  aix3*)
+    library_names_spec='$libname.a'
+    ;;
+  aix[4-9]*)
+    library_names_spec='$libname$shrext'
+    ;;
+  amigaos*)
+    case "$host_cpu" in
+      powerpc*)
+        library_names_spec='$libname$shrext' ;;
+      m68k)
+        library_names_spec='$libname.a' ;;
+    esac
+    ;;
+  beos*)
+    library_names_spec='$libname$shrext'
+    ;;
+  bsdi[45]*)
+    library_names_spec='$libname$shrext'
+    ;;
+  cygwin* | mingw* | pw32* | cegcc*)
+    shrext=.dll
+    library_names_spec='$libname.dll.a $libname.lib'
+    ;;
+  darwin* | rhapsody*)
+    shrext=.dylib
+    library_names_spec='$libname$shrext'
+    ;;
+  dgux*)
+    library_names_spec='$libname$shrext'
+    ;;
+  freebsd[23].*)
+    library_names_spec='$libname$shrext$versuffix'
+    ;;
+  freebsd* | dragonfly*)
+    library_names_spec='$libname$shrext'
+    ;;
+  gnu*)
+    library_names_spec='$libname$shrext'
+    ;;
+  haiku*)
+    library_names_spec='$libname$shrext'
+    ;;
+  hpux9* | hpux10* | hpux11*)
+    case $host_cpu in
+      ia64*)
+        shrext=.so
+        ;;
+      hppa*64*)
+        shrext=.sl
+        ;;
+      *)
+        shrext=.sl
+        ;;
+    esac
+    library_names_spec='$libname$shrext'
+    ;;
+  interix[3-9]*)
+    library_names_spec='$libname$shrext'
+    ;;
+  irix5* | irix6* | nonstopux*)
+    library_names_spec='$libname$shrext'
+    case "$host_os" in
+      irix5* | nonstopux*)
+        libsuff= shlibsuff=
+        ;;
+      *)
+        case $LD in
+          *-32|*"-32 "|*-melf32bsmip|*"-melf32bsmip ") libsuff= shlibsuff= ;;
+          *-n32|*"-n32 "|*-melf32bmipn32|*"-melf32bmipn32 ") libsuff=32 shlibsuff=N32 ;;
+          *-64|*"-64 "|*-melf64bmip|*"-melf64bmip ") libsuff=64 shlibsuff=64 ;;
+          *) libsuff= shlibsuff= ;;
+        esac
+        ;;
+    esac
+    ;;
+  linux*oldld* | linux*aout* | linux*coff*)
+    ;;
+  linux* | k*bsd*-gnu | kopensolaris*-gnu)
+    library_names_spec='$libname$shrext'
+    ;;
+  knetbsd*-gnu)
+    library_names_spec='$libname$shrext'
+    ;;
+  netbsd*)
+    library_names_spec='$libname$shrext'
+    ;;
+  newsos6)
+    library_names_spec='$libname$shrext'
+    ;;
+  *nto* | *qnx*)
+    library_names_spec='$libname$shrext'
+    ;;
+  openbsd*)
+    library_names_spec='$libname$shrext$versuffix'
+    ;;
+  os2*)
+    libname_spec='$name'
+    shrext=.dll
+    library_names_spec='$libname.a'
+    ;;
+  osf3* | osf4* | osf5*)
+    library_names_spec='$libname$shrext'
+    ;;
+  rdos*)
+    ;;
+  solaris*)
+    library_names_spec='$libname$shrext'
+    ;;
+  sunos4*)
+    library_names_spec='$libname$shrext$versuffix'
+    ;;
+  sysv4 | sysv4.3*)
+    library_names_spec='$libname$shrext'
+    ;;
+  sysv4*MP*)
+    library_names_spec='$libname$shrext'
+    ;;
+  sysv5* | sco3.2v5* | sco5v6* | unixware* | OpenUNIX* | sysv4*uw2*)
+    library_names_spec='$libname$shrext'
+    ;;
+  tpf*)
+    library_names_spec='$libname$shrext'
+    ;;
+  uts4*)
+    library_names_spec='$libname$shrext'
+    ;;
+esac
+
+sed_quote_subst='s/\(["`$\\]\)/\\\1/g'
+escaped_wl=`echo "X$wl" | sed -e 's/^X//' -e "$sed_quote_subst"`
+shlibext=`echo "$shrext" | sed -e 's,^\.,,'`
+escaped_libname_spec=`echo "X$libname_spec" | sed -e 's/^X//' -e "$sed_quote_subst"`
+escaped_library_names_spec=`echo "X$library_names_spec" | sed -e 's/^X//' -e "$sed_quote_subst"`
+escaped_hardcode_libdir_flag_spec=`echo "X$hardcode_libdir_flag_spec" | sed -e 's/^X//' -e "$sed_quote_subst"`
+
+LC_ALL=C sed -e 's/^\([a-zA-Z0-9_]*\)=/acl_cv_\1=/' <<EOF
+
+# How to pass a linker flag through the compiler.
+wl="$escaped_wl"
+
+# Static library suffix (normally "a").
+libext="$libext"
+
+# Shared library suffix (normally "so").
+shlibext="$shlibext"
+
+# Format of library name prefix.
+libname_spec="$escaped_libname_spec"
+
+# Library names that the linker finds when passed -lNAME.
+library_names_spec="$escaped_library_names_spec"
+
+# Flag to hardcode \$libdir into a binary during linking.
+# This must work even if \$libdir does not exist.
+hardcode_libdir_flag_spec="$escaped_hardcode_libdir_flag_spec"
+
+# Whether we need a single -rpath flag with a separated argument.
+hardcode_libdir_separator="$hardcode_libdir_separator"
+
+# Set to yes if using DIR/libNAME.so during linking hardcodes DIR into the
+# resulting binary.
+hardcode_direct="$hardcode_direct"
+
+# Set to yes if using the -LDIR flag during linking hardcodes DIR into the
+# resulting binary.
+hardcode_minus_L="$hardcode_minus_L"
+
+EOF
+ysv3
+	exit ;;
+    9000/[34]??:4.3bsd:1.*:*)
+	echo m68k-hp-bsd
+	exit ;;
+    hp300:4.4BSD:*:* | 9000/[34]??:4.3bsd:2.*:*)
+	echo m68k-hp-bsd4.4
+	exit ;;
+    9000/[34678]??:HP-UX:*:*)
+	HPUX_REV=`echo ${UNAME_RELEASE}|sed -e 's/[^.]*.[0B]*//'`
+	case "${UNAME_MACHINE}" in
+	    9000/31? )            HP_ARCH=m68000 ;;
+	    9000/[34]?? )         HP_ARCH=m68k ;;
+	    9000/[678][0-9][0-9])
+		if [ -x /usr/bin/getconf ]; then
+		    sc_cpu_version=`/usr/bin/getconf SC_CPU_VERSION 2>/dev/null`
+		    sc_kernel_bits=`/usr/bin/getconf SC_KERNEL_BITS 2>/dev/null`
+		    case "${sc_cpu_version}" in
+		      523) HP_ARCH="hppa1.0" ;; # CPU_PA_RISC1_0
+		      528) HP_ARCH="hppa1.1" ;; # CPU_PA_RISC1_1
+		      532)                      # CPU_PA_RISC2_0
+			case "${sc_kernel_bits}" in
+			  32) HP_ARCH="hppa2.0n" ;;
+			  64) HP_ARCH="hppa2.0w" ;;
+			  '') HP_ARCH="hppa2.0" ;;   # HP-UX 10.20
+			esac ;;
+		    esac
+		fi
+		if [ "${HP_ARCH}" = "" ]; then
+		    eval $set_cc_for_build
+		    sed 's/^		//' << EOF >$dummy.c
+
+		#define _HPUX_SOURCE
+		#include <stdlib.h>
+		#include <unistd.h>
+
+		int main ()
+		{
+		#if defined(_SC_KERNEL_BITS)
+		    long bits = sysconf(_SC_KERNEL_BITS);
+		#endif
+		    long cpu  = sysconf (_SC_CPU_VERSION);
+
+		    switch (cpu)
+			{
+			case CPU_PA_RISC1_0: puts ("hppa1.0"); break;
+			case CPU_PA_RISC1_1: puts ("hppa1.1"); break;
+			case CPU_PA_RISC2_0:
+		#if defined(_SC_KERNEL_BITS)
+			    switch (bits)
+				{
+				case 64: puts ("hppa2.0w"); break;
+				case 32: puts ("hppa2.0n"); break;
+				default: puts ("hppa2.0"); break;
+				} break;
+		#else  /* !defined(_SC_KERNEL_BITS) */
+			    puts ("hppa2.0"); break;
+		#endif
+			default: puts ("hppa1.0"); break;
+			}
+		    exit (0);
+		}
+EOF
+		    (CCOPTS= $CC_FOR_BUILD -o $dummy $dummy.c 2>/dev/null) && HP_ARCH=`$dummy`
+		    test -z "$HP_ARCH" && HP_ARCH=hppa
+		fi ;;
+	esac
+	if [ ${HP_ARCH} = "hppa2.0w" ]
+	then
+	    eval $set_cc_for_build
+
+	    # hppa2.0w-hp-hpux* has a 64-bit kernel and a compiler generating
+	    # 32-bit code.  hppa64-hp-hpux* has the same kernel and a compiler
+	    # generating 64-bit code.  GNU and HP use different nomenclature:
+	    #
+	    # $ CC_FOR_BUILD=cc ./config.guess
+	    # => hppa2.0w-hp-hpux11.23
+	    # $ CC_FOR_BUILD="cc +DA2.0w" ./config.guess
+	    # => hppa64-hp-hpux11.23
+
+	    if echo __LP64__ | (CCOPTS= $CC_FOR_BUILD -E - 2>/dev/null) |
+		grep -q __LP64__
+	    then
+		HP_ARCH="hppa2.0w"
+	    else
+		HP_ARCH="hppa64"
+	    fi
+	fi
+	echo ${HP_ARCH}-hp-hpux${HPUX_REV}
+	exit ;;
+    ia64:HP-UX:*:*)
+	HPUX_REV=`echo ${UNAME_RELEASE}|sed -e 's/[^.]*.[0B]*//'`
+	echo ia64-hp-hpux${HPUX_REV}
+	exit ;;
+    3050*:HI-UX:*:*)
+	eval $set_cc_for_build
+	sed 's/^	//' << EOF >$dummy.c
+	#include <unistd.h>
+	int
+	main ()
+	{
+	  long cpu = sysconf (_SC_CPU_VERSION);
+	  /* The order matters, because CPU_IS_HP_MC68K erroneously returns
+	     true for CPU_PA_RISC1_0.  CPU_IS_PA_RISC returns correct
+	     results, however.  */
+	  if (CPU_IS_PA_RISC (cpu))
+	    {
+	      switch (cpu)
+		{
+		  case CPU_PA_RISC1_0: puts ("hppa1.0-hitachi-hiuxwe2"); break;
+		  case CPU_PA_RISC1_1: puts ("hppa1.1-hitachi-hiuxwe2"); break;
+		  case CPU_PA_RISC2_0: puts ("hppa2.0-hitachi-hiuxwe2"); break;
+		  default: puts ("hppa-hitachi-hiuxwe2"); break;
+		}
+	    }
+	  else if (CPU_IS_HP_MC68K (cpu))
+	    puts ("m68k-hitachi-hiuxwe2");
+	  else puts ("unknown-hitachi-hiuxwe2");
+	  exit (0);
+	}
+EOF
+	$CC_FOR_BUILD -o $dummy $dummy.c && SYSTEM_NAME=`$dummy` &&
+		{ echo "$SYSTEM_NAME"; exit; }
+	echo unknown-hitachi-hiuxwe2
+	exit ;;
+    9000/7??:4.3bsd:*:* | 9000/8?[79]:4.3bsd:*:* )
+	echo hppa1.1-hp-bsd
+	exit ;;
+    9000/8??:4.3bsd:*:*)
+	echo hppa1.0-hp-bsd
+	exit ;;
+    *9??*:MPE/iX:*:* | *3000*:MPE/iX:*:*)
+	echo hppa1.0-hp-mpeix
+	exit ;;
+    hp7??:OSF1:*:* | hp8?[79]:OSF1:*:* )
+	echo hppa1.1-hp-osf
+	exit ;;
+    hp8??:OSF1:*:*)
+	echo hppa1.0-hp-osf
+	exit ;;
+    i*86:OSF1:*:*)
+	if [ -x /usr/sbin/sysversion ] ; then
+	    echo ${UNAME_MACHINE}-unknown-osf1mk
+	else
+	    echo ${UNAME_MACHINE}-unknown-osf1
+	fi
+	exit ;;
+    parisc*:Lites*:*:*)
+	echo hppa1.1-hp-lites
+	exit ;;
+    C1*:ConvexOS:*:* | convex:ConvexOS:C1*:*)
+	echo c1-convex-bsd
+	exit ;;
+    C2*:ConvexOS:*:* | convex:ConvexOS:C2*:*)
+	if getsysinfo -f scalar_acc
+	then echo c32-convex-bsd
+	else echo c2-convex-bsd
+	fi
+	exit ;;
+    C34*:ConvexOS:*:* | convex:ConvexOS:C34*:*)
+	echo c34-convex-bsd
+	exit ;;
+    C38*:ConvexOS:*:* | convex:ConvexOS:C38*:*)
+	echo c38-convex-bsd
+	exit ;;
+    C4*:ConvexOS:*:* | convex:ConvexOS:C4*:*)
+	echo c4-convex-bsd
+	exit ;;
+    CRAY*Y-MP:*:*:*)
+	echo ymp-cray-unicos${UNAME_RELEASE} | sed -e 's/\.[^.]*$/.X/'
+	exit ;;
+    CRAY*[A-Z]90:*:*:*)
+	echo ${UNAME_MACHINE}-cray-unicos${UNAME_RELEASE} \
+	| sed -e 's/CRAY.*\([A-Z]90\)/\1/' \
+	      -e y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/ \
+	      -e 's/\.[^.]*$/.X/'
+	exit ;;
+    CRAY*TS:*:*:*)
+	echo t90-cray-unicos${UNAME_RELEASE} | sed -e 's/\.[^.]*$/.X/'
+	exit ;;
+    CRAY*T3E:*:*:*)
+	echo alphaev5-cray-unicosmk${UNAME_RELEASE} | sed -e 's/\.[^.]*$/.X/'
+	exit ;;
+    CRAY*SV1:*:*:*)
+	echo sv1-cray-unicos${UNAME_RELEASE} | sed -e 's/\.[^.]*$/.X/'
+	exit ;;
+    *:UNICOS/mp:*:*)
+	echo craynv-cray-unicosmp${UNAME_RELEASE} | sed -e 's/\.[^.]*$/.X/'
+	exit ;;
+    F30[01]:UNIX_System_V:*:* | F700:UNIX_System_V:*:*)
+	FUJITSU_PROC=`uname -m | tr 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 'abcdefghijklmnopqrstuvwxyz'`
+	FUJITSU_SYS=`uname -p | tr 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 'abcdefghijklmnopqrstuvwxyz' | sed -e 's/\///'`
+	FUJITSU_REL=`echo ${UNAME_RELEASE} | sed -e 's/ /_/'`
+	echo "${FUJITSU_PROC}-fujitsu-${FUJITSU_SYS}${FUJITSU_REL}"
+	exit ;;
+    5000:UNIX_System_V:4.*:*)
+	FUJITSU_SYS=`uname -p | tr 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 'abcdefghijklmnopqrstuvwxyz' | sed -e 's/\///'`
+	FUJITSU_REL=`echo ${UNAME_RELEASE} | tr 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 'abcdefghijklmnopqrstuvwxyz' | sed -e 's/ /_/'`
+	echo "sparc-fujitsu-${FUJITSU_SYS}${FUJITSU_REL}"
+	exit ;;
+    i*86:BSD/386:*:* | i*86:BSD/OS:*:* | *:Ascend\ Embedded/OS:*:*)
+	echo ${UNAME_MACHINE}-pc-bsdi${UNAME_RELEASE}
+	exit ;;
+    sparc*:BSD/OS:*:*)
+	echo sparc-unknown-bsdi${UNAME_RELEASE}
+	exit ;;
+    *:BSD/OS:*:*)
+	echo ${UNAME_MACHINE}-unknown-bsdi${UNAME_RELEASE}
+	exit ;;
+    *:FreeBSD:*:*)
+	UNAME_PROCESSOR=`/usr/bin/uname -p`
+	case ${UNAME_PROCESSOR} in
+	    amd64)
+		echo x86_64-unknown-freebsd`echo ${UNAME_RELEASE}|sed -e 's/[-(].*//'` ;;
+	    *)
+		echo ${UNAME_PROCESSOR}-unknown-freebsd`echo ${UNAME_RELEASE}|sed -e 's/[-(].*//'` ;;
+	esac
+	exit ;;
+    i*:CYGWIN*:*)
+	echo ${UNAME_MACHINE}-pc-cygwin
+	exit ;;
+    *:MINGW64*:*)
+	echo ${UNAME_MACHINE}-pc-mingw64
+	exit ;;
+    *:MINGW*:*)
+	echo ${UNAME_MACHINE}-pc-mingw32
+	exit ;;
+    *:MSYS*:*)
+	echo ${UNAME_MACHINE}-pc-msys
+	exit ;;
+    i*:windows32*:*)
+	# uname -m includes "-pc" on this system.
+	echo ${UNAME_MACHINE}-mingw32
+	exit ;;
+    i*:PW*:*)
+	echo ${UNAME_MACHINE}-pc-pw32
+	exit ;;
+    *:Interix*:*)
+	case ${UNAME_MACHINE} in
+	    x86)
+		echo i586-pc-interix${UNAME_RELEASE}
+		exit ;;
+	    authenticamd | genuineintel | EM64T)
+		echo x86_64-unknown-interix${UNAME_RELEASE}
+		exit ;;
+	    IA64)
+		echo ia64-unknown-interix${UNAME_RELEASE}
+		exit ;;
+	esac ;;
+    [345]86:Windows_95:* | [345]86:Windows_98:* | [345]86:Windows_NT:*)
+	echo i${UNAME_MACHINE}-pc-mks
+	exit ;;
+    8664:Windows_NT:*)
+	echo x86_64-pc-mks
+	exit ;;
+    i*:Windows_NT*:* | Pentium*:Windows_NT*:*)
+	# How do we know it's Interix rather than the generic POSIX subsystem?
+	# It also conflicts with pre-2.0 versions of AT&T UWIN. Should we
+	# UNAME_MACHINE based on the output of uname instead of i386?
+	echo i586-pc-interix
+	exit ;;
+    i*:UWIN*:*)
+	echo ${UNAME_MACHINE}-pc-uwin
+	exit ;;
+    amd64:CYGWIN*:*:* | x86_64:CYGWIN*:*:*)
+	echo x86_64-unknown-cygwin
+	exit ;;
+    p*:CYGWIN*:*)
+	echo powerpcle-unknown-cygwin
+	exit ;;
+    prep*:SunOS:5.*:*)
+	echo powerpcle-unknown-solaris2`echo ${UNAME_RELEASE}|sed -e 's/[^.]*//'`
+	exit ;;
+    *:GNU:*:*)
+	# the GNU system
+	echo `echo ${UNAME_MACHINE}|sed -e 's,[-/].*$,,'`-unknown-${LIBC}`echo ${UNAME_RELEASE}|sed -e 's,/.*$,,'`
+	exit ;;
+    *:GNU/*:*:*)
+	# other systems with GNU libc and userland
+	echo ${UNAME_MACHINE}-unknown-`echo ${UNAME_SYSTEM} | sed 's,^[^/]*/,,' | tr '[A-Z]' '[a-z]'``echo ${UNAME_RELEASE}|sed -e 's/[-(].*//'`-${LIBC}
+	exit ;;
+    i*86:Minix:*:*)
+	echo ${UNAME_MACHINE}-pc-minix
+	exit ;;
+    aarch64:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    aarch64_be:Linux:*:*)
+	UNAME_MACHINE=aarch64_be
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    alpha:Linux:*:*)
+	case `sed -n '/^cpu model/s/^.*: \(.*\)/\1/p' < /proc/cpuinfo` in
+	  EV5)   UNAME_MACHINE=alphaev5 ;;
+	  EV56)  UNAME_MACHINE=alphaev56 ;;
+	  PCA56) UNAME_MACHINE=alphapca56 ;;
+	  PCA57) UNAME_MACHINE=alphapca56 ;;
+	  EV6)   UNAME_MACHINE=alphaev6 ;;
+	  EV67)  UNAME_MACHINE=alphaev67 ;;
+	  EV68*) UNAME_MACHINE=alphaev68 ;;
+	esac
+	objdump --private-headers /bin/sh | grep -q ld.so.1
+	if test "$?" = 0 ; then LIBC="gnulibc1" ; fi
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    arc:Linux:*:* | arceb:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    arm*:Linux:*:*)
+	eval $set_cc_for_build
+	if echo __ARM_EABI__ | $CC_FOR_BUILD -E - 2>/dev/null \
+	    | grep -q __ARM_EABI__
+	then
+	    echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	else
+	    if echo __ARM_PCS_VFP | $CC_FOR_BUILD -E - 2>/dev/null \
+		| grep -q __ARM_PCS_VFP
+	    then
+		echo ${UNAME_MACHINE}-unknown-linux-${LIBC}eabi
+	    else
+		echo ${UNAME_MACHINE}-unknown-linux-${LIBC}eabihf
+	    fi
+	fi
+	exit ;;
+    avr32*:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    cris:Linux:*:*)
+	echo ${UNAME_MACHINE}-axis-linux-${LIBC}
+	exit ;;
+    crisv32:Linux:*:*)
+	echo ${UNAME_MACHINE}-axis-linux-${LIBC}
+	exit ;;
+    frv:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    hexagon:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    i*86:Linux:*:*)
+	echo ${UNAME_MACHINE}-pc-linux-${LIBC}
+	exit ;;
+    ia64:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    m32r*:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    m68*:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    mips:Linux:*:* | mips64:Linux:*:*)
+	eval $set_cc_for_build
+	sed 's/^	//' << EOF >$dummy.c
+	#undef CPU
+	#undef ${UNAME_MACHINE}
+	#undef ${UNAME_MACHINE}el
+	#if defined(__MIPSEL__) || defined(__MIPSEL) || defined(_MIPSEL) || defined(MIPSEL)
+	CPU=${UNAME_MACHINE}el
+	#else
+	#if defined(__MIPSEB__) || defined(__MIPSEB) || defined(_MIPSEB) || defined(MIPSEB)
+	CPU=${UNAME_MACHINE}
+	#else
+	CPU=
+	#endif
+	#endif
+EOF
+	eval `$CC_FOR_BUILD -E $dummy.c 2>/dev/null | grep '^CPU'`
+	test x"${CPU}" != x && { echo "${CPU}-unknown-linux-${LIBC}"; exit; }
+	;;
+    openrisc*:Linux:*:*)
+	echo or1k-unknown-linux-${LIBC}
+	exit ;;
+    or32:Linux:*:* | or1k*:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    padre:Linux:*:*)
+	echo sparc-unknown-linux-${LIBC}
+	exit ;;
+    parisc64:Linux:*:* | hppa64:Linux:*:*)
+	echo hppa64-unknown-linux-${LIBC}
+	exit ;;
+    parisc:Linux:*:* | hppa:Linux:*:*)
+	# Look for CPU level
+	case `grep '^cpu[^a-z]*:' /proc/cpuinfo 2>/dev/null | cut -d' ' -f2` in
+	  PA7*) echo hppa1.1-unknown-linux-${LIBC} ;;
+	  PA8*) echo hppa2.0-unknown-linux-${LIBC} ;;
+	  *)    echo hppa-unknown-linux-${LIBC} ;;
+	esac
+	exit ;;
+    ppc64:Linux:*:*)
+	echo powerpc64-unknown-linux-${LIBC}
+	exit ;;
+    ppc:Linux:*:*)
+	echo powerpc-unknown-linux-${LIBC}
+	exit ;;
+    ppc64le:Linux:*:*)
+	echo powerpc64le-unknown-linux-${LIBC}
+	exit ;;
+    ppcle:Linux:*:*)
+	echo powerpcle-unknown-linux-${LIBC}
+	exit ;;
+    s390:Linux:*:* | s390x:Linux:*:*)
+	echo ${UNAME_MACHINE}-ibm-linux-${LIBC}
+	exit ;;
+    sh64*:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    sh*:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    sparc:Linux:*:* | sparc64:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    tile*:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    vax:Linux:*:*)
+	echo ${UNAME_MACHINE}-dec-linux-${LIBC}
+	exit ;;
+    x86_64:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    xtensa*:Linux:*:*)
+	echo ${UNAME_MACHINE}-unknown-linux-${LIBC}
+	exit ;;
+    i*86:DYNIX/ptx:4*:*)
+	# ptx 4.0 does uname -s correctly, with DYNIX/ptx in there.
+	# earlier versions are messed up and put the nodename in both
+	# sysname and nodename.
+	echo i386-sequent-sysv4
+	exit ;;
+    i*86:UNIX_SV:4.2MP:2.*)
+	# Unixware is an offshoot of SVR4, but it has its own version
+	# number series starting with 2...
+	# I am not positive that other SVR4 systems won't match this,
+	# I just have to hope.  -- rms.
+	# Use sysv4.2uw... so that sysv4* matches it.
+	echo ${UNAME_MACHINE}-pc-sysv4.2uw${UNAME_VERSION}
+	exit ;;
+    i*86:OS/2:*:*)
+	# If we were able to find `uname', then EMX Unix compatibility
+	# is probably installed.
+	echo ${UNAME_MACHINE}-pc-os2-emx
+	exit ;;
+    i*86:XTS-300:*:STOP)
+	echo ${UNAME_MACHINE}-unknown-stop
+	exit ;;
+    i*86:atheos:*:*)
+	echo ${UNAME_MACHINE}-unknown-atheos
+	exit ;;
+    i*86:syllable:*:*)
+	echo ${UNAME_MACHINE}-pc-syllable
+	exit ;;
+    i*86:LynxOS:2.*:* | i*86:LynxOS:3.[01]*:* | i*86:LynxOS:4.[02]*:*)
+	echo i386-unknown-lynxos${UNAME_RELEASE}
+	exit ;;
+    i*86:*DOS:*:*)
+	echo ${UNAME_MACHINE}-pc-msdosdjgpp
+	exit ;;
+    i*86:*:4.*:* | i*86:SYSTEM_V:4.*:*)
+	UNAME_REL=`echo ${UNAME_RELEASE} | sed 's/\/MP$//'`
+	if grep Novell /usr/include/link.h >/dev/null 2>/dev/null; then
+		echo ${UNAME_MACHINE}-univel-sysv${UNAME_REL}
+	else
+		echo ${UNAME_MACHINE}-pc-sysv${UNAME_REL}
+	fi
+	exit ;;
+    i*86:*:5:[678]*)
+	# UnixWare 7.x, OpenUNIX and OpenServer 6.
+	case `/bin/uname -X | grep "^Machine"` in
+	    *486*)	     UNAME_MACHINE=i486 ;;
+	    *Pentium)	     UNAME_MACHINE=i586 ;;
+	    *Pent*|*Celeron) UNAME_MACHINE=i686 ;;
+	esac
+	echo ${UNAME_MACHINE}-unknown-sysv${UNAME_RELEASE}${UNAME_SYSTEM}${UNAME_VERSION}
+	exit ;;
+    i*86:*:3.2:*)
+	if test -f /usr/options/cb.name; then
+		UNAME_REL=`sed -n 's/.*Version //p' </usr/options/cb.name`
+		echo ${UNAME_MACHINE}-pc-isc$UNAME_REL
+	elif /bin/uname -X 2>/dev/null >/dev/null ; then
+		UNAME_REL=`(/bin/uname -X|grep Release|sed -e 's/.*= //')`
+		(/bin/uname -X|grep i80486 >/dev/null) && UNAME_MACHINE=i486
+		(/bin/uname -X|grep '^Machine.*Pentium' >/dev/null) \
+			&& UNAME_MACHINE=i586
+		(/bin/uname -X|grep '^Machine.*Pent *II' >/dev/null) \
+			&& UNAME_MACHINE=i686
+		(/bin/uname -X|grep '^Machine.*Pentium Pro' >/dev/null) \
+			&& UNAME_MACHINE=i686
+		echo ${UNAME_MACHINE}-pc-sco$UNAME_REL
+	else
+		echo ${UNAME_MACHINE}-pc-sysv32
+	fi
+	exit ;;
+    pc:*:*:*)
+	# Left here for compatibility:
+	# uname -m prints for DJGPP always 'pc', but it prints nothing about
+	# the processor, so we play safe by assuming i586.
+	# Note: whatever this is, it MUST be the same as what config.sub
+	# prints for the "djgpp" host, or else GDB configury will decide that
+	# this is a cross-build.
+	echo i586-pc-msdosdjgpp
+	exit ;;
+    Intel:Mach:3*:*)
+	echo i386-pc-mach3
+	exit ;;
+    paragon:*:*:*)
+	echo i860-intel-osf1
+	exit ;;
+    i860:*:4.*:*) # i860-SVR4
+	if grep Stardent /usr/include/sys/uadmin.h >/dev/null 2>&1 ; then
+	  echo i860-stardent-sysv${UNAME_RELEASE} # Stardent Vistra i860-SVR4
+	else # Add other i860-SVR4 vendors below as they are discovered.
+	  echo i860-unknown-sysv${UNAME_RELEASE}  # Unknown i860-SVR4
+	fi
+	exit ;;
+    mini*:CTIX:SYS*5:*)
+	# "miniframe"
+	echo m68010-convergent-sysv
+	exit ;;
+    mc68k:UNIX:SYSTEM5:3.51m)
+	echo m68k-convergent-sysv
+	exit ;;
+    M680?0:D-NIX:5.3:*)
+	echo m68k-diab-dnix
+	exit ;;
+    M68*:*:R3V[5678]*:*)
+	test -r /sysV68 && { echo 'm68k-motorola-sysv'; exit; } ;;
+    3[345]??:*:4.0:3.0 | 3[34]??A:*:4.0:3.0 | 3[34]??,*:*:4.0:3.0 | 3[34]??/*:*:4.0:3.0 | 4400:*:4.0:3.0 | 4850:*:4.0:3.0 | SKA40:*:4.0:3.0 | SDS2:*:4.0:3.0 | SHG2:*:4.0:3.0 | S7501*:*:4.0:3.0)
+	OS_REL=''
+	test -r /etc/.relid \
+	&& OS_REL=.`sed -n 's/[^ ]* [^ ]* \([0-9][0-9]\).*/\1/p' < /etc/.relid`
+	/bin/uname -p 2>/dev/null | grep 86 >/dev/null \
+	  && { echo i486-ncr-sysv4.3${OS_REL}; exit; }
+	/bin/uname -p 2>/dev/null | /bin/grep entium >/dev/null \
+	  && { echo i586-ncr-sysv4.3${OS_REL}; exit; } ;;
+    3[34]??:*:4.0:* | 3[34]??,*:*:4.0:*)
+	/bin/uname -p 2>/dev/null | grep 86 >/dev/null \
+	  && { echo i486-ncr-sysv4; exit; } ;;
+    NCR*:*:4.2:* | MPRAS*:*:4.2:*)
+	OS_REL='.3'
+	test -r /etc/.relid \
+	    && OS_REL=.`sed -n 's/[^ ]* [^ ]* \([0-9][0-9]\).*/\1/p' < /etc/.relid`
+	/bin/uname -p 2>/dev/null | grep 86 >/dev/null \
+	    && { echo i486-ncr-sysv4.3${OS_REL}; exit; }
+	/bin/uname -p 2>/dev/null | /bin/grep entium >/dev/null \
+	    && { echo i586-ncr-sysv4.3${OS_REL}; exit; }
+	/bin/uname -p 2>/dev/null | /bin/grep pteron >/dev/null \
+	    && { echo i586-ncr-sysv4.3${OS_REL}; exit; } ;;
+    m68*:LynxOS:2.*:* | m68*:LynxOS:3.0*:*)
+	echo m68k-unknown-lynxos${UNAME_RELEASE}
+	exit ;;
+    mc68030:UNIX_System_V:4.*:*)
+	echo m68k-atari-sysv4
+	exit ;;
+    TSUNAMI:LynxOS:2.*:*)
+	echo sparc-unknown-lynxos${UNAME_RELEASE}
+	exit ;;
+    rs6000:LynxOS:2.*:*)
+	echo rs6000-unknown-lynxos${UNAME_RELEASE}
+	exit ;;
+    PowerPC:LynxOS:2.*:* | PowerPC:LynxOS:3.[01]*:* | PowerPC:LynxOS:4.[02]*:*)
+	echo powerpc-unknown-lynxos${UNAME_RELEASE}
+	exit ;;
+    SM[BE]S:UNIX_SV:*:*)
+	echo mips-dde-sysv${UNAME_RELEASE}
+	exit ;;
+    RM*:ReliantUNIX-*:*:*)
+	echo mips-sni-sysv4
+	exit ;;
+    RM*:SINIX-*:*:*)
+	echo mips-sni-sysv4
+	exit ;;
+    *:SINIX-*:*:*)
+	if uname -p 2>/dev/null >/dev/null ; then
+		UNAME_MACHINE=`(uname -p) 2>/dev/null`
+		echo ${UNAME_MACHINE}-sni-sysv4
+	else
+		echo ns32k-sni-sysv
+	fi
+	exit ;;
+    PENTIUM:*:4.0*:*)	# Unisys `ClearPath HMP IX 4000' SVR4/MP effort
+			# says <Richard.M.Bartel@ccMail.Census.GOV>
+	echo i586-unisys-sysv4
+	exit ;;
+    *:UNIX_System_V:4*:FTX*)
+	# From Gerald Hewes <hewes@openmarket.com>.
+	# How about differentiating between stratus architectures? -djm
+	echo hppa1.1-stratus-sysv4
+	exit ;;
+    *:*:*:FTX*)
+	# From seanf@swdc.stratus.com.
+	echo i860-stratus-sysv4
+	exit ;;
+    i*86:VOS:*:*)
+	# From Paul.Green@stratus.com.
+	echo ${UNAME_MACHINE}-stratus-vos
+	exit ;;
+    *:VOS:*:*)
+	# From Paul.Green@stratus.com.
+	echo hppa1.1-stratus-vos
+	exit ;;
+    mc68*:A/UX:*:*)
+	echo m68k-apple-aux${UNAME_RELEASE}
+	exit ;;
+    news*:NEWS-OS:6*:*)
+	echo mips-sony-newsos6
+	exit ;;
+    R[34]000:*System_V*:*:* | R4000:UNIX_SYSV:*:* | R*000:UNIX_SV:*:*)
+	if [ -d /usr/nec ]; then
+		echo mips-nec-sysv${UNAME_RELEASE}
+	else
+		echo mips-unknown-sysv${UNAME_RELEASE}
+	fi
+	exit ;;
+    BeBox:BeOS:*:*)	# BeOS running on hardware made by Be, PPC only.
+	echo powerpc-be-beos
+	exit ;;
+    BeMac:BeOS:*:*)	# BeOS running on Mac or Mac clone, PPC only.
+	echo powerpc-apple-beos
+	exit ;;
+    BePC:BeOS:*:*)	# BeOS running on Intel PC compatible.
+	echo i586-pc-beos
+	exit ;;
+    BePC:Haiku:*:*)	# Haiku running on Intel PC compatible.
+	echo i586-pc-haiku
+	exit ;;
+    x86_64:Haiku:*:*)
+	echo x86_64-unknown-haiku
+	exit ;;
+    SX-4:SUPER-UX:*:*)
+	echo sx4-nec-superux${UNAME_RELEASE}
+	exit ;;
+    SX-5:SUPER-UX:*:*)
+	echo sx5-nec-superux${UNAME_RELEASE}
+	exit ;;
+    SX-6:SUPER-UX:*:*)
+	echo sx6-nec-superux${UNAME_RELEASE}
+	exit ;;
+    SX-7:SUPER-UX:*:*)
+	echo sx7-nec-superux${UNAME_RELEASE}
+	exit ;;
+    SX-8:SUPER-UX:*:*)
+	echo sx8-nec-superux${UNAME_RELEASE}
+	exit ;;
+    SX-8R:SUPER-UX:*:*)
+	echo sx8r-nec-superux${UNAME_RELEASE}
+	exit ;;
+    Power*:Rhapsody:*:*)
+	echo powerpc-apple-rhapsody${UNAME_RELEASE}
+	exit ;;
+    *:Rhapsody:*:*)
+	echo ${UNAME_MACHINE}-apple-rhapsody${UNAME_RELEASE}
+	exit ;;
+    *:Darwin:*:*)
+	UNAME_PROCESSOR=`uname -p` || UNAME_PROCESSOR=unknown
+	eval $set_cc_for_build
+	if test "$UNAME_PROCESSOR" = unknown ; then
+	    UNAME_PROCESSOR=powerpc
+	fi
+	if test `echo "$UNAME_RELEASE" | sed -e 's/\..*//'` -le 10 ; then
+	    if [ "$CC_FOR_BUILD" != 'no_compiler_found' ]; then
+		if (echo '#ifdef __LP64__'; echo IS_64BIT_ARCH; echo '#endif') | \
+		    (CCOPTS= $CC_FOR_BUILD -E - 2>/dev/null) | \
+		    grep IS_64BIT_ARCH >/dev/null
+		then
+		    case $UNAME_PROCESSOR in
+			i386) UNAME_PROCESSOR=x86_64 ;;
+			powerpc) UNAME_PROCESSOR=powerpc64 ;;
+		    esac
+		fi
+	    fi
+	elif test "$UNAME_PROCESSOR" = i386 ; then
+	    # Avoid executing cc on OS X 10.9, as it ships with a stub
+	    # that puts up a graphical alert prompting to install
+	    # developer tools.  Any system running Mac OS X 10.7 or
+	    # later (Darwin 11 and later) is required to have a 64-bit
+	    # processor. This is not true of the ARM version of Darwin
+	    # that Apple uses in portable devices.
+	    UNAME_PROCESSOR=x86_64
+	fi
+	echo ${UNAME_PROCESSOR}-apple-darwin${UNAME_RELEASE}
+	exit ;;
+    *:procnto*:*:* | *:QNX:[0123456789]*:*)
+	UNAME_PROCESSOR=`uname -p`
+	if test "$UNAME_PROCESSOR" = "x86"; then
+		UNAME_PROCESSOR=i386
+		UNAME_MACHINE=pc
+	fi
+	echo ${UNAME_PROCESSOR}-${UNAME_MACHINE}-nto-qnx${UNAME_RELEASE}
+	exit ;;
+    *:QNX:*:4*)
+	echo i386-pc-qnx
+	exit ;;
+    NEO-?:NONSTOP_KERNEL:*:*)
+	echo neo-tandem-nsk${UNAME_RELEASE}
+	exit ;;
+    NSE-*:NONSTOP_KERNEL:*:*)
+	echo nse-tandem-nsk${UNAME_RELEASE}
+	exit ;;
+    NSR-?:NONSTOP_KERNEL:*:*)
+	echo nsr-tandem-nsk${UNAME_RELEASE}
+	exit ;;
+    *:NonStop-UX:*:*)
+	echo mips-compaq-nonstopux
+	exit ;;
+    BS2000:POSIX*:*:*)
+	echo bs2000-siemens-sysv
+	exit ;;
+    DS/*:UNIX_System_V:*:*)
+	echo ${UNAME_MACHINE}-${UNAME_SYSTEM}-${UNAME_RELEASE}
+	exit ;;
+    *:Plan9:*:*)
+	# "uname -m" is not consistent, so use $cputype instead. 386
+	# is converted to i386 for consistency with other x86
+	# operating systems.
+	if test "$cputype" = "386"; then
+	    UNAME_MACHINE=i386
+	else
+	    UNAME_MACHINE="$cputype"
+	fi
+	echo ${UNAME_MACHINE}-unknown-plan9
+	exit ;;
+    *:TOPS-10:*:*)
+	echo pdp10-unknown-tops10
+	exit ;;
+    *:TENEX:*:*)
+	echo pdp10-unknown-tenex
+	exit ;;
+    KS10:TOPS-20:*:* | KL10:TOPS-20:*:* | TYPE4:TOPS-20:*:*)
+	echo pdp10-dec-tops20
+	exit ;;
+    XKL-1:TOPS-20:*:* | TYPE5:TOPS-20:*:*)
+	echo pdp10-xkl-tops20
+	exit ;;
+    *:TOPS-20:*:*)
+	echo pdp10-unknown-tops20
+	exit ;;
+    *:ITS:*:*)
+	echo pdp10-unknown-its
+	exit ;;
+    SEI:*:*:SEIUX)
+	echo mips-sei-seiux${UNAME_RELEASE}
+	exit ;;
+    *:DragonFly:*:*)
+	echo ${UNAME_MACHINE}-unknown-dragonfly`echo ${UNAME_RELEASE}|sed -e 's/[-(].*//'`
+	exit ;;
+    *:*VMS:*:*)
+	UNAME_MACHINE=`(uname -p) 2>/dev/null`
+	case "${UNAME_MACHINE}" in
+	    A*) echo alpha-dec-vms ; exit ;;
+	    I*) echo ia64-dec-vms ; exit ;;
+	    V*) echo vax-dec-vms ; exit ;;
+	esac ;;
+    *:XENIX:*:SysV)
+	echo i386-pc-xenix
+	exit ;;
+    i*86:skyos:*:*)
+	echo ${UNAME_MACHINE}-pc-skyos`echo ${UNAME_RELEASE}` | sed -e 's/ .*$//'
+	exit ;;
+    i*86:rdos:*:*)
+	echo ${UNAME_MACHINE}-pc-rdos
+	exit ;;
+    i*86:AROS:*:*)
+	echo ${UNAME_MACHINE}-pc-aros
+	exit ;;
+    x86_64:VMkernel:*:*)
+	echo ${UNAME_MACHINE}-unknown-esx
+	exit ;;
+esac
+
+cat >&2 <<EOF
+$0: unable to guess system type
+
+This script, last modified $timestamp, has failed to recognize
+the operating system you are using. It is advised that you
+download the most up to date version of the config scripts from
+
+  http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD
+and
+  http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD
+
+If the version you run ($0) is already up to date, please
+send the following data and any information you think might be
+pertinent to <config-patches@gnu.org> in order to provide the needed
+information to handle your system.
+
+config.guess timestamp = $timestamp
+
+uname -m = `(uname -m) 2>/dev/null || echo unknown`
+uname -r = `(uname -r) 2>/dev/null || echo unknown`
+uname -s = `(uname -s) 2>/dev/null || echo unknown`
+uname -v = `(uname -v) 2>/dev/null || echo unknown`
+
+/usr/bin/uname -p = `(/usr/bin/uname -p) 2>/dev/null`
+/bin/uname -X     = `(/bin/uname -X) 2>/dev/null`
+
+hostinfo               = `(hostinfo) 2>/dev/null`
+/bin/universe          = `(/bin/universe) 2>/dev/null`
+/usr/bin/arch -k       = `(/usr/bin/arch -k) 2>/dev/null`
+/bin/arch              = `(/bin/arch) 2>/dev/null`
+/usr/bin/oslevel       = `(/usr/bin/oslevel) 2>/dev/null`
+/usr/convex/getsysinfo = `(/usr/convex/getsysinfo) 2>/dev/null`
+
+UNAME_MACHINE = ${UNAME_MACHINE}
+UNAME_RELEASE = ${UNAME_RELEASE}
+UNAME_SYSTEM  = ${UNAME_SYSTEM}
+UNAME_VERSION = ${UNAME_VERSION}
+EOF
+
+exit 1
+
+# Local variables:
+# eval: (add-hook 'write-file-hooks 'time-stamp)
+# time-stamp-start: "timestamp='"
+# time-stamp-format: "%:y-%02m-%02d"
+# time-stamp-end: "'"
+# End:
