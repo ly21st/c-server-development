@@ -1,13 +1,13 @@
 /*
  *  Author : WangBoJing , email : 1989wangbojing@gmail.com
- * 
+ *
  *  Copyright Statement:
  *  --------------------
  *  This software is protected by Copyright and the information contained
  *  herein is confidential. The software may not be copied and the information
  *  contained herein may not be used or disclosed except with the written
  *  permission of Author. (C) 2017
- * 
+ *
  *
 
 ****       *****                                      *****
@@ -128,19 +128,19 @@ nty_coroutine *nty_schedule_search_wait(int fd) {
 }
 
 nty_coroutine* nty_schedule_desched_wait(int fd) {
-	
+
 	nty_coroutine find_it = {0};
 	find_it.fd = fd;
 
 	nty_schedule *sched = nty_coroutine_get_sched();
-	
+
 	nty_coroutine *co = RB_FIND(_nty_coroutine_rbtree_wait, &sched->waiting, &find_it);
 	if (co != NULL) {
 		RB_REMOVE(_nty_coroutine_rbtree_wait, &co->sched->waiting, co);
 	}
 	co->status = 0;
 	nty_schedule_desched_sleepdown(co);
-	
+
 	return co;
 }
 
@@ -165,7 +165,7 @@ void nty_schedule_sched_wait(nty_coroutine *co, int fd, unsigned short events, u
 	assert(co_tmp == NULL);
 	//printf("timeout --> %"PRIu64"\n", timeout);
 	if (timeout == 1) return ; //Error
-	nty_schedule_sched_sleepdown(co, timeout);	
+	nty_schedule_sched_sleepdown(co, timeout);
 }
 
 void nty_schedule_cancel_wait(nty_coroutine *co) {
@@ -179,7 +179,7 @@ void nty_schedule_free(nty_schedule *sched) {
 	if (sched->eventfd > 0) {
 		close(sched->eventfd);
 	}
-	
+
 	free(sched);
 
 	assert(pthread_setspecific(global_sched_key, NULL) == 0);
@@ -226,11 +226,11 @@ int nty_schedule_create(int stack_size) {
 
 
 static nty_coroutine *nty_schedule_expired(nty_schedule *sched) {
-	
+
 	uint64_t t_diff_usecs = nty_coroutine_diff_usecs(sched->birth, nty_coroutine_usec_now());
 	nty_coroutine *co = RB_MIN(_nty_coroutine_rbtree_sleep, &sched->sleeping);
 	if (co == NULL) return NULL;
-	
+
 	if (co->sleep_usecs <= t_diff_usecs) {
 		RB_REMOVE(_nty_coroutine_rbtree_sleep, &co->sched->sleeping, co);
 		return co;
@@ -239,7 +239,7 @@ static nty_coroutine *nty_schedule_expired(nty_schedule *sched) {
 }
 
 static inline int nty_schedule_isdone(nty_schedule *sched) {
-	return (RB_EMPTY(&sched->waiting) && 
+	return (RB_EMPTY(&sched->waiting) &&
 		LIST_EMPTY(&sched->busy) &&
 		RB_EMPTY(&sched->sleeping) &&
 		TAILQ_EMPTY(&sched->ready));
@@ -258,7 +258,7 @@ static uint64_t nty_schedule_min_timeout(nty_schedule *sched) {
 	}
 
 	return 0;
-} 
+}
 
 static int nty_schedule_epoll(nty_schedule *sched) {
 	sched->num_new_events = 0;
@@ -291,7 +291,7 @@ static int nty_schedule_epoll(nty_schedule *sched) {
 void nty_schedule_run(void) {
 	nty_schedule *sched = nty_coroutine_get_sched();
 	if (sched == NULL) return ;
-	while (!nty_schedule_isdone(sched)) {	
+	while (!nty_schedule_isdone(sched)) {
 		// 1. expired --> sleep rbtree
 		nty_coroutine *expired = NULL;
 		while ((expired = nty_schedule_expired(sched)) != NULL) {
@@ -307,13 +307,13 @@ void nty_schedule_run(void) {
 				break;
 			}
 			nty_coroutine_resume(co);
-			if (co == last_co_ready) break;
+			if (co == last_co_renty_schedule_sched_waitdy) break;
 		}
 		// 3. wait rbtree
 		nty_schedule_epoll(sched);
 		while (sched->num_new_events) {
 			int idx = sched->num_new_events - 1;
-			struct epoll_event *ev = sched->eventlist+idx;			
+			struct epoll_event *ev = sched->eventlist+idx;
 			int fd = ev->data.fd;
 			int is_eof = ev->events & EPOLLHUP;
 			if (is_eof) errno = ECONNRESET;

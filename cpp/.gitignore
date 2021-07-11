@@ -1,0 +1,8 @@
+install.log
+/sqls/
+deployment_plan.ini
+global_config.ini
+*.tar.gz
+*.tgz
+*.zip
+*.sql

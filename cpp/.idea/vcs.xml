@@ -2,5 +2,11 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lingshengxueyuan/chap4.3/protocol/1-json/rapidjson_test/RapidJSON" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lingshengxueyuan/chap4.4/libzmq-test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lingshengxueyuan/chap6.1/src-gdb/valgrind" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/CMake" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit" vcs="Git" />
   </component>
 </project>

@@ -2,19 +2,19 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="cp" targetName="gridIllumination2" />
-      <config projectName="cp" targetName="isPalindrome" />
-      <config projectName="cp" targetName="mul_port_client_epoll" />
-      <config projectName="cp" targetName="twoSum" />
-      <config projectName="cp" targetName="longestCommonPrefix" />
       <config projectName="cp" targetName="sync_http" />
-      <config projectName="cp" targetName="gridIllumination" />
-      <config projectName="cp" targetName="reactor" />
-      <config projectName="cp" targetName="cfg" />
-      <config projectName="cp" targetName="async_http" />
       <config projectName="cp" targetName="trap" />
+      <config projectName="cp" targetName="mul_port_client_epoll" />
       <config projectName="cp" targetName="merge" />
+      <config projectName="cp" targetName="isPalindrome" />
+      <config projectName="cp" targetName="longestCommonPrefix" />
+      <config projectName="cp" targetName="twoSum" />
+      <config projectName="cp" targetName="async_http" />
+      <config projectName="cp" targetName="gridIllumination" />
+      <config projectName="cp" targetName="gridIllumination2" />
+      <config projectName="cp" targetName="cfg" />
       <config projectName="cp" targetName="MyCircularDeque" />
+      <config projectName="cp" targetName="reactor" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -24,17 +24,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65c40f1c-de2a-42eb-a477-9c1e91fe9212" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap1_1/kmp.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap1_1/kmp.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap2_4/async_http.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap2_4/sync_http.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap5_3/client.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap5_3/mul_port_client_epoll.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap5_3/reactor.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap5_3/service.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap5_3/学习笔记.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap4.4/libzmq-test/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/lingshengxueyuan/chap4.4/libzmq-test/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap6.1/src-gdb/valgrind/sample.c" beforeDir="false" afterPath="$PROJECT_DIR$/lingshengxueyuan/chap6.1/src-gdb/valgrind/sample.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap6.1/src-gdb/valgrind/valgrind-3.15.0.tar.bz2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/CMake/hello-world/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/CMake/hello-world/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/bin/nty_bench" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/bin/nty_client" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/bin/nty_http_server" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/bin/nty_http_server_mulcore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/bin/nty_server" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/bin/nty_server_mulcore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/bin/nty_websocket_server" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/bin/ntyco_httpd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_bench.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_client.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_coroutine.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_epoll.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_http_epoll.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_http_server.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_http_server_mulcore.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_schedule.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_server.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_server_mulcore.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_socket.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/nty_websocket_server.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/NtyCo/objs/ntyco_httpd.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/build_for_android.sh" beforeDir="false" afterPath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/build_for_android.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/build_for_ios.sh" beforeDir="false" afterPath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/build_for_ios.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/build_for_linux.sh" beforeDir="false" afterPath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/build_for_linux.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/build_for_mac.sh" beforeDir="false" afterPath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/build_for_mac.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/cmake/AndroidNdkGdb.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/cmake/AndroidNdkGdb.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/cmake/AndroidNdkModules.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/cmake/AndroidNdkModules.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/cmake/android.toolchain.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/cmake/android.toolchain.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/src/Util/File.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lingshengxueyuan/chap7.2/src/ZLToolKit/src/Util/File.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -201,6 +225,13 @@
       <workItem from="1596465391770" duration="671000" />
       <workItem from="1610812062873" duration="235000" />
       <workItem from="1610875521131" duration="4581000" />
+      <workItem from="1610977942723" duration="1198000" />
+      <workItem from="1614087457071" duration="684000" />
+      <workItem from="1615470877316" duration="1864000" />
+      <workItem from="1615604792290" duration="598000" />
+      <workItem from="1615693153620" duration="650000" />
+      <workItem from="1616294568902" duration="618000" />
+      <workItem from="1616421261186" duration="596000" />
     </task>
     <servers />
   </component>
