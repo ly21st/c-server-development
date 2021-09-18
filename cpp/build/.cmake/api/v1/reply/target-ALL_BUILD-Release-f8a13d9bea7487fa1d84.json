@@ -1,0 +1,72 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "MyCircularDeque::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "isPalindrome::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "gridIllumination2::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "mul_port_client_epoll::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "twoSum::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "longestCommonPrefix::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "cfg::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "reactor::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "async_http::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "gridIllumination::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "trap::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "sync_http::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "merge::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

@@ -1,0 +1,692 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "cp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Debug-f8a13d9bea7487fa1d84.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MyCircularDeque::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MyCircularDeque-Debug-ce8035527a88282e93b3.json",
+					"name" : "MyCircularDeque",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Debug-aa4fbd44de62198742f1.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "async_http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-async_http-Debug-c6bbd2addd10f65c739c.json",
+					"name" : "async_http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cfg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cfg-Debug-0c935279134b2d3e19ba.json",
+					"name" : "cfg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gridIllumination::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gridIllumination-Debug-4a8619a70b1a55fce4b3.json",
+					"name" : "gridIllumination",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gridIllumination2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gridIllumination2-Debug-0d2d46bcdd9988018611.json",
+					"name" : "gridIllumination2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "isPalindrome::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-isPalindrome-Debug-9ee119d9dbc310e36971.json",
+					"name" : "isPalindrome",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "longestCommonPrefix::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-longestCommonPrefix-Debug-389afda862889bb20d2d.json",
+					"name" : "longestCommonPrefix",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "merge::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-merge-Debug-f2465ba10af23fea960e.json",
+					"name" : "merge",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mul_port_client_epoll::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mul_port_client_epoll-Debug-e706c576ee0571c53d56.json",
+					"name" : "mul_port_client_epoll",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "reactor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-reactor-Debug-13ed28b2d1f2a0f49f63.json",
+					"name" : "reactor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sync_http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sync_http-Debug-b5c267cdd42ecd601fa3.json",
+					"name" : "sync_http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trap::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trap-Debug-2660156fa264f721e720.json",
+					"name" : "trap",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "twoSum::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-twoSum-Debug-1556c4c10f206dbecedf.json",
+					"name" : "twoSum",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "cp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Release-f8a13d9bea7487fa1d84.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MyCircularDeque::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MyCircularDeque-Release-e43c799080cc79ea22fb.json",
+					"name" : "MyCircularDeque",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Release-aa4fbd44de62198742f1.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "async_http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-async_http-Release-ab5e7c761ed703bb80ac.json",
+					"name" : "async_http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cfg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cfg-Release-1797faa63a10101162c8.json",
+					"name" : "cfg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gridIllumination::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gridIllumination-Release-21006a7874411f7e6b76.json",
+					"name" : "gridIllumination",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gridIllumination2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gridIllumination2-Release-f35c93621a60b88e42a1.json",
+					"name" : "gridIllumination2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "isPalindrome::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-isPalindrome-Release-6f14d35f94436f7fc93e.json",
+					"name" : "isPalindrome",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "longestCommonPrefix::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-longestCommonPrefix-Release-218386599964e9b363c5.json",
+					"name" : "longestCommonPrefix",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "merge::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-merge-Release-1a2759436c693d162b18.json",
+					"name" : "merge",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mul_port_client_epoll::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mul_port_client_epoll-Release-b213844fdae910072ab3.json",
+					"name" : "mul_port_client_epoll",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "reactor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-reactor-Release-7f6b86d6a769db14ba56.json",
+					"name" : "reactor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sync_http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sync_http-Release-703452481f5be69f5862.json",
+					"name" : "sync_http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trap::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trap-Release-6f99444fa8585fd3812b.json",
+					"name" : "trap",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "twoSum::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-twoSum-Release-6f2d8f73e9c942516034.json",
+					"name" : "twoSum",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "cp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-f8a13d9bea7487fa1d84.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MyCircularDeque::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MyCircularDeque-MinSizeRel-594b6ea7802d1e8eccd3.json",
+					"name" : "MyCircularDeque",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-aa4fbd44de62198742f1.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "async_http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-async_http-MinSizeRel-3d07def579d2272ffb43.json",
+					"name" : "async_http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cfg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cfg-MinSizeRel-9c9db070c3c76758ed8c.json",
+					"name" : "cfg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gridIllumination::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gridIllumination-MinSizeRel-c778c0e318530c045289.json",
+					"name" : "gridIllumination",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gridIllumination2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gridIllumination2-MinSizeRel-02786855914816f986bd.json",
+					"name" : "gridIllumination2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "isPalindrome::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-isPalindrome-MinSizeRel-272840d0bb3acdddd863.json",
+					"name" : "isPalindrome",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "longestCommonPrefix::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-longestCommonPrefix-MinSizeRel-ea9790eb1bf9100619a0.json",
+					"name" : "longestCommonPrefix",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "merge::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-merge-MinSizeRel-51fb89c57bdfdd16078f.json",
+					"name" : "merge",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mul_port_client_epoll::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mul_port_client_epoll-MinSizeRel-099c371f09ae953774f4.json",
+					"name" : "mul_port_client_epoll",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "reactor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-reactor-MinSizeRel-46c8fc87b5d4e9eb7728.json",
+					"name" : "reactor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sync_http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sync_http-MinSizeRel-608f33a15faa2f2967b3.json",
+					"name" : "sync_http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trap::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trap-MinSizeRel-222d667bd0b28e4ef563.json",
+					"name" : "trap",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "twoSum::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-twoSum-MinSizeRel-81559ad9a8d865223224.json",
+					"name" : "twoSum",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "cp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-f8a13d9bea7487fa1d84.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MyCircularDeque::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MyCircularDeque-RelWithDebInfo-45326bec79622d8c1073.json",
+					"name" : "MyCircularDeque",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-aa4fbd44de62198742f1.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "async_http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-async_http-RelWithDebInfo-ea76031967bea1d665f9.json",
+					"name" : "async_http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cfg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cfg-RelWithDebInfo-e1583ff87d354f79cadd.json",
+					"name" : "cfg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gridIllumination::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gridIllumination-RelWithDebInfo-23fffaa17b2ed7077408.json",
+					"name" : "gridIllumination",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gridIllumination2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gridIllumination2-RelWithDebInfo-b7c6fdfd1b6d18edb29a.json",
+					"name" : "gridIllumination2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "isPalindrome::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-isPalindrome-RelWithDebInfo-92ad0f7848ac430bcce8.json",
+					"name" : "isPalindrome",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "longestCommonPrefix::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-longestCommonPrefix-RelWithDebInfo-e06d39aad0c44cd5a4ab.json",
+					"name" : "longestCommonPrefix",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "merge::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-merge-RelWithDebInfo-d18c79f6c5ef0c87d7f3.json",
+					"name" : "merge",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mul_port_client_epoll::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mul_port_client_epoll-RelWithDebInfo-77f83a63bf361501911a.json",
+					"name" : "mul_port_client_epoll",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "reactor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-reactor-RelWithDebInfo-0b6bffe6388e2507c0d4.json",
+					"name" : "reactor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sync_http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sync_http-RelWithDebInfo-e079eb79198330e60b4a.json",
+					"name" : "sync_http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trap::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trap-RelWithDebInfo-daba43f860f2876e889a.json",
+					"name" : "trap",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "twoSum::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-twoSum-RelWithDebInfo-842d4d63a6e9c8c8059f.json",
+					"name" : "twoSum",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/liyuan-github/c-server-development/cpp/build",
+		"source" : "E:/liyuan-github/c-server-development/cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
